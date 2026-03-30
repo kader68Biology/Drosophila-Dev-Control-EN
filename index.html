@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aspect Génétique du Développement Embryonnaire - L3 Génétique</title>
-    <!-- Assurez-vous d'avoir votre fichier CSS lié ici -->
-    <link rel="stylesheet" href="style.css"> 
     <style>
-        /* Style rapide pour simuler l'aspect Moodle si vous n'avez pas de CSS complet */
-        .moodle-section { border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px; }
-        .moodle-header { background: #f9f9f9; padding: 10px; border-bottom: 2px solid #0f388f; font-weight: bold; }
-        .resource-link { display: block; padding: 5px 0; color: #0f388f; text-decoration: none; }
-        .resource-link:hover { text-decoration: underline; }
-        .icon-pdf { color: #d90000; }
-        .icon-video { color: #007bff; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f4f4f4; }
+        .container { width: 90%; max-width: 1200px; margin: auto; overflow: hidden; padding: 20px; }
+        .navbar { background: #0f388f; color: #fff; padding: 10px 0; border-bottom: 3px solid #0056b3; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .navbar a { color: #fff; text-decoration: none; padding: 0 15px; }
+        .navbar-brand { font-size: 1.5rem; font-weight: bold; }
+        .course-header { background: #fff; padding: 30px 0; border-bottom: 1px solid #ddd; }
+        .moodle-section { background: #fff; border: 1px solid #ddd; margin-bottom: 20px; border-radius: 5px; }
+        .moodle-header { background: #f9f9f9; padding: 15px; border-bottom: 2px solid #0f388f; font-weight: bold; font-size: 1.2rem; }
+        .section-content { padding: 20px; }
+        .btn-download { display: inline-block; background: #0f388f; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 4px; margin-top: 10px; }
+        .btn-download:hover { background: #0056b3; }
+        .resource-link { color: #0f388f; text-decoration: none; font-weight: bold; }
+        .footer { background: #333; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+        video { width: 100%; max-height: 500px; background: #000; margin-top: 10px; }
+        iframe { width: 100%; height: 500px; border: 1px solid #ddd; }
     </style>
 </head>
 <body>
@@ -22,12 +29,12 @@
 <nav class="navbar">
     <div class="container">
         <a class="navbar-brand" href="index.html">Drosophila-Dev | Univ Oran 1</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="courses.html">Contenu du Cours</a></li>
-            <li><a href="instructor.html">Enseignant</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="courses.html">Contenu du Cours</a>
+            <a href="instructor.html">Enseignant</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </div>
 </nav>
 
@@ -53,33 +60,44 @@
             <h3>Bienvenue dans le module</h3>
             <p>Ce cours couvre les aspects génétiques du développement embryonnaire, en se concentrant sur le modèle <em>Drosophila melanogaster</em>.</p>
             <ul>
+                <li><a href="activities/annonce_bienvenue.html" class="resource-link" target="_blank">📂 Consulter l'Annonce de Bienvenue (Interactif)</a></li>
                 <li><a href="courses.html" class="resource-link">📂 Accéder aux Ressources Complètes</a></li>
                 <li><a href="contact.html" class="resource-link">📧 Contacter l'Enseignant</a></li>
             </ul>
         </div>
     </div>
 
-    <!-- Section Annonces -->
+    <!-- Section Vidéo -->
     <div class="moodle-section">
-        <div class="moodle-header">Annonces</div>
+        <div class="moodle-header">Vidéo d'Annonce</div>
         <div class="section-content">
-            <h4>📢 Mise en ligne des ressources</h4>
-            <p>Les supports de cours (PDF) et les vidéos sont désormais disponibles dans l'onglet "Contenu du Cours".</p>
-            <small>Publié le: 2024-2025</small>
+            <p>Présentation du module, objectifs pédagogiques et modalités d'évaluation.</p>
+            <!-- VIDEO INTEGRATION -->
+            <video controls>
+                <source src="videos/annonce_etudiants.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+            </video>
         </div>
     </div>
 
-    <!-- Section Vidéo d'Introduction -->
+    <!-- Section Documents Principaux -->
     <div class="moodle-section">
-        <div class="moodle-header">Introduction Vidéo</div>
+        <div class="moodle-header">Documents de Cours (PDF)</div>
         <div class="section-content">
-            <p>Présentation du module, objectifs pédagogiques et modalités d'évaluation.</p>
-            <!-- PLACEHOLDER POUR VOTRE VIDEO MP4 -->
-            <div style="background:#000; color:#fff; padding:20px; text-align:center;">
-                [Vidéo d'Introduction - MP4 à intégrer ici]
-                <br>
-                <code>&lt;video controls src="videos/intro.mp4"&gt;&lt;/video&gt;</code>
-            </div>
+            <ul>
+                <li style="margin-bottom: 15px;">
+                    <strong>📄 Cours 1 : Synthèse Drosophila</strong><br>
+                    Support principal du cours.
+                    <br>
+                    <a href="documents/Cours1_Synthese_Drosophila_20260302.pdf" class="btn-download" target="_blank">Télécharger PDF</a>
+                </li>
+                <li>
+                    <strong>📄 Cours 1 : Session 2</strong><br>
+                    Complément et approfondissement.
+                    <br>
+                    <a href="documents/Cours1_Synthese_Session2_20260302.pdf" class="btn-download" target="_blank">Télécharger PDF</a>
+                </li>
+            </ul>
         </div>
     </div>
 
@@ -90,8 +108,8 @@
     <div class="container">
         <p>&copy; 2024-2025 Université d'Oran 1 - Ahmed Ben Bella | Dr Abdelkader ALLOUCHE</p>
         <p>
-            <a href="https://github.com/kader68Biology">GitHub</a> | 
-            <a href="https://kader68biology.github.io/Drosophila-Dev-Control/">GitHub Pages</a>
+            <a href="https://github.com/kader68Biology" style="color:#fff;">GitHub</a> | 
+            <a href="https://kader68biology.github.io/Drosophila-Dev-Control/" style="color:#fff;">GitHub Pages</a>
         </p>
     </div>
 </footer>
