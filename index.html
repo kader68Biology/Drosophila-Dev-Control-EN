@@ -5,276 +5,677 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aspect Génétique du Développement Embryonnaire - L3 Génétique</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
-        .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px; }
-        
-        /* Navigation */
-        .navbar { background: linear-gradient(135deg, #0f388f 0%, #0056b3 100%); color: #fff; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-        .navbar-brand { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
-        .nav-links { display: flex; list-style: none; gap: 20px; }
-        .nav-links a { color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 5px; transition: background 0.3s; }
-        .nav-links a:hover { background: rgba(255,255,255,0.2); }
-        .menu-toggle { display: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
-        
+        :root {
+            --primary-color: #2c7bb6;
+            --secondary-color: #1a5490;
+            --accent-color: #006d5b;
+            --light-bg: #f4f7fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         /* Header */
-        .course-header { background: linear-gradient(135deg, #fff 0%, #f0f4ff 100%); padding: 60px 0; text-align: center; border-bottom: 3px solid #0f388f; }
-        .course-header h1 { color: #0f388f; font-size: 2.5rem; margin-bottom: 15px; }
-        .course-header .lead { color: #666; font-size: 1.2rem; margin-bottom: 20px; }
-        .course-header .uni-info { color: #0f388f; font-weight: bold; margin: 10px 0; }
-        .course-header .instructor { color: #333; font-style: italic; }
-        .btn-primary { display: inline-block; background: #0f388f; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin-top: 20px; transition: background 0.3s; }
-        .btn-primary:hover { background: #0056b3; }
-        
-        /* Sections */
-        .section { background: #fff; margin: 30px 0; padding: 30px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
-        .section-title { color: #0f388f; font-size: 1.8rem; margin-bottom: 20px; border-bottom: 2px solid #0f388f; padding-bottom: 10px; }
-        
-        /* Cards */
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: #f9f9f9; padding: 25px; border-radius: 8px; border-left: 4px solid #0f388f; transition: transform 0.3s, box-shadow 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
-        .card h3 { color: #0f388f; margin-bottom: 10px; }
-        .card p { color: #666; margin-bottom: 15px; }
-        .card ul { list-style: none; margin-bottom: 15px; }
-        .card ul li { padding: 5px 0; color: #555; }
-        .card ul li:before { content: "✓ "; color: #0f388f; font-weight: bold; }
-        .btn-download { display: inline-block; background: #0f388f; color: #fff; padding: 8px 20px; text-decoration: none; border-radius: 5px; font-size: 0.9rem; transition: background 0.3s; }
-        .btn-download:hover { background: #0056b3; }
-        
-        /* Video */
-        .video-container { background: #000; border-radius: 10px; overflow: hidden; margin: 20px 0; }
-        video { width: 100%; display: block; }
-        
-        /* Contact */
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .contact-info { background: #f9f9f9; padding: 25px; border-radius: 8px; }
-        .contact-info h3 { color: #0f388f; margin-bottom: 15px; }
-        .contact-info p { margin: 10px 0; }
-        .contact-info a { color: #0f388f; text-decoration: none; }
-        .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
-        .contact-form button { background: #0f388f; color: #fff; padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background 0.3s; }
-        .contact-form button:hover { background: #0056b3; }
-        
+        header {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero h1 {
+            color: var(--secondary-color);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--text-light);
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .hero-info {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Resources Section */
+        .resources {
+            background: var(--white);
+            padding: 40px 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--secondary-color);
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resource-card {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .resource-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .resource-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .resource-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .resource-card li {
+            padding: 8px 0;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .resource-card li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Video Section */
+        .video-section {
+            background: var(--white);
+            padding: 40px 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Documents Section */
+        .documents {
+            background: var(--white);
+            padding: 40px 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .doc-card {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .doc-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        /* Activities Section */
+        .activities {
+            background: var(--white);
+            padding: 40px 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .activity-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .activity-card a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .activity-card a:last-child {
+            border-bottom: none;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+            padding: 40px 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .contact-icon {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
         /* Footer */
-        .footer { background: linear-gradient(135deg, #333 0%, #1a1a1a 100%); color: #fff; text-align: center; padding: 30px 0; margin-top: 50px; }
-        .footer a { color: #fff; text-decoration: none; }
-        .footer a:hover { text-decoration: underline; }
-        
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .menu-toggle { display: block; }
-            .course-header h1 { font-size: 1.8rem; }
-            .cards-grid { grid-template-columns: 1fr; }
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 1.8em;
+            }
+
+            .resources-grid,
+            .doc-grid,
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-
-<!-- Navigation -->
-<nav class="navbar">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">🧬 Drosophila Dev</a>
-        <ul class="nav-links">
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#cours">Cours</a></li>
-            <li><a href="#video">Vidéo</a></li>
-            <li><a href="#documents">Documents</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="menu-toggle">☰</div>
-    </div>
-</nav>
-
-<!-- Header -->
-<header class="course-header" id="accueil">
-    <div class="container">
-        <h1>Aspect Génétique du Développement Embryonnaire</h1>
-        <p class="lead">Maîtrisez les mécanismes du développement chez Drosophila melanogaster</p>
-        <p class="uni-info">🎓 Université d'Oran 1 - Ahmed Ben Bella</p>
-        <p>Faculté des Sciences de la Nature et de la Vie | Département de Biotechnologie</p>
-        <p>Niveau: 3ème année Licence Génétique | Année: 2024-2025</p>
-        <p class="instructor">Enseignant: Dr Abdelkader ALLOUCHE - Maître de Conférences en Biologie</p>
-        <a href="#cours" class="btn-primary">Accéder aux Ressources</a>
-    </div>
-</header>
-
-<!-- Main Content -->
-<div class="container">
-
-    <!-- Ressources Pédagogiques -->
-    <section class="section" id="cours">
-        <h2 class="section-title">Ressources Pédagogiques</h2>
-        <p style="margin-bottom: 20px;">Accédez à l'ensemble des supports de cours</p>
-        
-        <div class="cards-grid">
-            <!-- Annonce -->
-            <div class="card">
-                <div class="card-icon">📢</div>
-                <h3>Annonce Importante</h3>
-                <p>Mise en ligne des ressources pédagogiques et informations pratiques</p>
-                <a href="activities/annonce_bienvenue.html" class="btn-download" target="_blank">Consulter</a>
-            </div>
-            
-            <!-- Développement Embryonnaire -->
-            <div class="card">
-                <div class="card-icon">🔬</div>
-                <h3>Développement Embryonnaire</h3>
-                <p>Signalisation terminale, ovogenèse et mise en place des axes</p>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">🧬 Drosophila Dev</a>
+            <nav>
                 <ul>
-                    <li>Signalisation terminale (Torso)</li>
-                    <li>Ovogenèse et axes maternels</li>
-                    <li>Activation du récepteur</li>
-                    <li>Cascade Ras/MAPK</li>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#cours">Cours</a></li>
+                    <li><a href="#video">Vidéo</a></li>
+                    <li><a href="#documents">Documents</a></li>
+                    <li><a href="#activities">Activités</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
-                <a href="documents/Cours1_Synthese_Drosophila_20260302.pdf" class="btn-download" target="_blank">Télécharger PDF</a>
-            </div>
-            
-            <!-- Régulation Maternelle -->
-            <div class="card">
-                <div class="card-icon">🧬</div>
-                <h3>Régulation Maternelle</h3>
-                <p>Axes Antéro-Postérieur et Dorso-Ventral</p>
-                <ul>
-                    <li>Système antérieur (Bicoid)</li>
-                    <li>Système postérieur (Nanos/Oskar)</li>
-                    <li>Système dorso-ventral (Dorsal)</li>
-                    <li>Intégration des systèmes</li>
-                </ul>
-                <a href="documents/Cours1_Synthese_Session2_20260302.pdf" class="btn-download" target="_blank">Télécharger PDF</a>
-            </div>
-            
-            <!-- Cycle de Vie -->
-            <div class="card">
-                <div class="card-icon">🔄</div>
-                <h3>Cycle de Vie & Segmentation</h3>
-                <p>Drosophila melanogaster et cascade de segmentation</p>
-                <ul>
-                    <li>Cycle de vie Drosophila</li>
-                    <li>Ovogenèse et structure de l'œuf</li>
-                    <li>Cascade de segmentation</li>
-                    <li>Gènes homéotiques</li>
-                </ul>
-                <a href="courses.html" class="btn-download">Voir Activités Interactives</a>
-            </div>
+                <div class="mobile-menu">☰</div>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <!-- Vidéo d'Annonce -->
-    <section class="section" id="video">
-        <h2 class="section-title">Vidéo d'Annonce</h2>
-        <p>Présentation du module et des ressources</p>
-        
-        <div class="card" style="margin-top: 20px;">
-            <h3>Bienvenue dans le module</h3>
-            <p>Découvrez dans cette vidéo :</p>
-            <ul>
-                <li>Les objectifs pédagogiques du cours</li>
-                <li>L'organisation des ressources en ligne</li>
-                <li>Les modalités d'accès et d'évaluation</li>
-                <li>Les recommandations pour réussir</li>
-            </ul>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero" id="accueil">
+            <h1>Aspect Génétique du Développement Embryonnaire</h1>
+            <p>Maîtrisez les mécanismes du développement chez <em>Drosophila melanogaster</em></p>
+            
+            <div class="hero-info">
+                <p><strong>🎓 Université d'Oran 1 - Ahmed Ben Bella</strong></p>
+                <p>Faculté des Sciences de la Nature et de la Vie | Département de Biotechnologie</p>
+                <p><strong>Niveau:</strong> 3ème année Licence Génétique | <strong>Année:</strong> 2024-2025</p>
+                <p><strong>Enseignant:</strong> Dr Abdelkader ALLOUCHE - Maître de Conférences en Biologie</p>
+            </div>
+
+            <a href="#cours" class="btn">Accéder aux Ressources</a>
+        </section>
+
+        <!-- Announcement -->
+        <section class="resources">
+            <h2 class="section-title">📢 Annonce Importante</h2>
+            <div class="resource-card" style="max-width: 800px; margin: 0 auto;">
+                <p>Mise en ligne des ressources pédagogiques et informations pratiques</p>
+                <br>
+                <a href="activities/annonce_bienvenue.html" class="download-btn">Consulter l'annonce</a>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="resources" id="cours">
+            <h2 class="section-title">Ressources Pédagogiques</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
+                Accédez à l'ensemble des supports de cours, documents PDF et activités interactives
+            </p>
+            
+            <div class="resources-grid">
+                <!-- Développement Embryonnaire -->
+                <div class="resource-card">
+                    <div class="resource-icon">🔬</div>
+                    <h3>Développement Embryonnaire</h3>
+                    <ul>
+                        <li>Signalisation terminale (Torso)</li>
+                        <li>Ovogenèse et mise en place des axes</li>
+                        <li>Activation du récepteur</li>
+                        <li>Cascade Ras/MAPK</li>
+                    </ul>
+                    <a href="documents/cours_drosophila.pdf" class="download-btn">📄 Télécharger PDF</a>
+                </div>
+
+                <!-- Régulation Maternelle -->
+                <div class="resource-card">
+                    <div class="resource-icon">🧬</div>
+                    <h3>Régulation Maternelle</h3>
+                    <ul>
+                        <li>Axes Antéro-Postérieur et Dorso-Ventral</li>
+                        <li>Système antérieur (Bicoid)</li>
+                        <li>Système postérieur (Nanos/Oskar)</li>
+                        <li>Système dorso-ventral (Dorsal)</li>
+                    </ul>
+                    <a href="documents/cours_drosophila_ovogenese.pdf" class="download-btn">📄 Télécharger PDF</a>
+                </div>
+
+                <!-- Cycle de Vie & Segmentation -->
+                <div class="resource-card">
+                    <div class="resource-icon">🔄</div>
+                    <h3>Cycle de Vie & Segmentation</h3>
+                    <ul>
+                        <li>Cycle de vie Drosophila</li>
+                        <li>Ovogenèse et structure de l'œuf</li>
+                        <li>Cascade de segmentation</li>
+                        <li>Gènes homéotiques</li>
+                    </ul>
+                    <a href="documents/cours_drosophila.pdf" class="download-btn">📄 Télécharger PDF</a>
+                </div>
+
+                <!-- Activités Interactives -->
+                <div class="resource-card">
+                    <div class="resource-icon">🎮</div>
+                    <h3>Activités Interactives</h3>
+                    <ul>
+                        <li><a href="activities/cours_drosophila.html">Cours Cycle de Vie (HTML)</a></li>
+                        <li><a href="activities/cours_drosophila_ovogenese.html">Cours Ovogenèse (HTML)</a></li>
+                        <li><a href="activities/TD2_axesAPDV_interactif.html">TD2: Axes AP/DV</a></li>
+                        <li><a href="activities/Diagrammes_Interactifs_Drosophile.html">Diagrammes AP Interactif</a></li>
+                        <li><a href="activities/TD4_interactive.html">TD4 Interactive</a></li>
+                        <li><a href="activities/OvoRegFinal_interactif.html">OvoReg Final</a></li>
+                    </ul>
+                    <a href="courses.html" class="download-btn">Voir Toutes les Activités</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section" id="video">
+            <h2 class="section-title">Vidéo d'Annonce</h2>
+            <p style="margin-bottom: 20px; color: var(--text-light);">Présentation du module et des ressources</p>
             
             <div class="video-container">
-                <video controls>
-                    <source src="videos/annonce_etudiants.mp4" type="video/mp4">
+                <video width="100%" controls>
+                    <source src="activities/annonce_etudiants.mp4" type="video/mp4">
                     Votre navigateur ne supporte pas la balise vidéo.
                 </video>
             </div>
-        </div>
-    </section>
 
-    <!-- Documents de Cours -->
-    <section class="section" id="documents">
-        <h2 class="section-title">Documents de Cours</h2>
-        <p style="margin-bottom: 20px;">Téléchargez ou consultez les supports</p>
-        
-        <div class="cards-grid">
-            <!-- Annonce Bienvenue -->
-            <div class="card">
-                <div class="card-icon">📄</div>
-                <h3>Annonce Bienvenue</h3>
-                <p>Informations Générales</p>
-                <ul>
-                    <li>Présentation du module</li>
-                    <li>Ressources disponibles</li>
-                    <li>Comment accéder aux ressources</li>
-                    <li>Recommandations importantes</li>
+            <div style="margin-top: 30px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3 style="color: var(--secondary-color); margin-bottom: 15px;">Bienvenue dans le module</h3>
+                <p>Découvrez dans cette vidéo :</p>
+                <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-light);">
+                    <li>Les objectifs pédagogiques du cours</li>
+                    <li>L'organisation des ressources en ligne</li>
+                    <li>Les modalités d'accès et d'évaluation</li>
+                    <li>Les recommandations pour réussir</li>
                 </ul>
-                <a href="activities/annonce_bienvenue.html" class="btn-download" target="_blank">Consulter</a>
             </div>
+        </section>
+
+        <!-- Documents Section -->
+        <section class="documents" id="documents">
+            <h2 class="section-title">Documents de Cours</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
+                Téléchargez ou consultez les supports
+            </p>
             
-            <!-- Activités Interactives -->
-            <div class="card">
-                <div class="card-icon">🎮</div>
-                <h3>Activités Interactives</h3>
-                <p>Exercices et simulations interactives</p>
-                <ul>
-                    <li>TD2: Axes AP/DV</li>
-                    <li>Diagrammes AP Interactif</li>
-                    <li>TD4 Interactive</li>
-                    <li>OvoReg Final</li>
-                </ul>
-                <a href="courses.html" class="btn-download">Accéder aux Activités</a>
-            </div>
-        </div>
-    </section>
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <div class="doc-icon">📄</div>
+                    <h4>Annonce Bienvenue</h4>
+                    <p style="color: var(--text-light); font-size: 0.9em; margin: 10px 0;">
+                        Informations Générales<br>Présentation du module
+                    </p>
+                    <a href="activities/annonce_bienvenue.html" class="download-btn">Consulter</a>
+                </div>
 
-    <!-- Contact & Informations -->
-    <section class="section" id="contact">
-        <h2 class="section-title">Contact & Informations</h2>
-        <p style="margin-bottom: 20px;">Besoin d'aide ou d'informations ?</p>
-        
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Informations de Contact</h3>
-                <p><strong>👨‍🏫 Enseignant</strong><br>Dr Abdelkader ALLOUCHE<br>Maître de Conférences en Biologie</p>
-                <p><strong>🏛️ Université</strong><br>Université d'Oran 1 - Ahmed Ben Bella<br>Faculté des Sciences de la Nature et de la Vie</p>
-                <p><strong>💻 Plateforme</strong><br><a href="https://elearn.univ-oran1.dz" target="_blank">elearning.univ-oran1.dz</a></p>
-                <p><strong>📧 Contact</strong><br>Via la messagerie de la plateforme e-learning</p>
+                <div class="doc-card">
+                    <div class="doc-icon">📚</div>
+                    <h4>Cours Cycle de Vie</h4>
+                    <p style="color: var(--text-light); font-size: 0.9em; margin: 10px 0;">
+                        Développement & Segmentation<br>Version PDF & HTML
+                    </p>
+                    <a href="documents/cours_drosophila.pdf" class="download-btn">PDF</a>
+                    <a href="activities/cours_drosophila.html" class="download-btn" style="margin-top: 5px;">HTML</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">🧬</div>
+                    <h4>Cours Ovogenèse</h4>
+                    <p style="color: var(--text-light); font-size: 0.9em; margin: 10px 0;">
+                        Régulation Maternelle<br>Version PDF & HTML
+                    </p>
+                    <a href="documents/cours_drosophila_ovogenese.pdf" class="download-btn">PDF</a>
+                    <a href="activities/cours_drosophila_ovogenese.html" class="download-btn" style="margin-top: 5px;">HTML</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">🎮</div>
+                    <h4>Activités Interactives</h4>
+                    <p style="color: var(--text-light); font-size: 0.9em; margin: 10px 0;">
+                        TD & Diagrammes<br>Exercices pratiques
+                    </p>
+                    <a href="courses.html" class="download-btn">Accéder</a>
+                </div>
             </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section class="activities" id="activities">
+            <h2 class="section-title">🎮 Activités Interactives</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
+                Exercices et simulations interactives pour approfondir vos connaissances
+            </p>
             
-            <div class="contact-form">
-                <h3>Envoyer un Message</h3>
-                <form action="mailto:allouche.abdelkader@uiv-oran1.dz" method="post" enctype="text/plain">
-                    <input type="text" name="name" placeholder="Nom Complet *" required>
-                    <input type="email" name="email" placeholder="Email Universitaire *" required>
-                    <input type="text" name="matricule" placeholder="Numéro de Matricule *" required>
-                    <input type="text" name="subject" placeholder="Sujet *" required>
-                    <textarea name="message" rows="5" placeholder="Message *" required></textarea>
-                    <button type="submit">Envoyer le Message</button>
-                </form>
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <h3>TD & Exercices</h3>
+                    <a href="activities/TD2_axesAPDV_interactif.html">→ TD2: Axes AP/DV</a>
+                    <a href="activities/TD4_interactive.html">→ TD4 Interactive</a>
+                    <a href="activities/OvoRegFinal_interactif.html">→ OvoReg Final</a>
+                </div>
+
+                <div class="activity-card">
+                    <h3>Diagrammes Interactifs</h3>
+                    <a href="activities/Diagrammes_Interactifs_Drosophile.html">→ Diagrammes Drosophile</a>
+                    <a href="activities/Diagrammes_AP_Interactif.html">→ Diagrammes AP</a>
+                </div>
+
+                <div class="activity-card">
+                    <h3>Cours HTML Interactifs</h3>
+                    <a href="activities/cours_drosophila.html">→ Cycle de Vie (HTML)</a>
+                    <a href="activities/cours_drosophila_ovogenese.html">→ Ovogenèse (HTML)</a>
+                </div>
+
+                <div class="activity-card">
+                    <h3>Ressources Visuelles</h3>
+                    <a href="activities/fig01_cycle_vie.png">→ Figure 1: Cycle de Vie</a>
+                    <a href="activities/fig02_ovariole.png">→ Figure 2: Ovariole</a>
+                    <a href="activities/fig05_axes_polarite.png">→ Figure 5: Axes Polarité</a>
+                    <a href="courses.html">→ Voir toutes les figures</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-</div>
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h2 class="section-title">Contact & Informations</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
+                Besoin d'aide ou d'informations ?
+            </p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">👨‍🏫</div>
+                    <h4>Enseignant</h4>
+                    <p>Dr Abdelkader ALLOUCHE</p>
+                    <p style="color: var(--text-light);">Maître de Conférences en Biologie</p>
+                </div>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <p>© 2024-2025 Université d'Oran 1 - Ahmed Ben Bella | Tous droits réservés</p>
-        <p>
+                <div class="contact-item">
+                    <div class="contact-icon">🏛️</div>
+                    <h4>Université</h4>
+                    <p>Université d'Oran 1</p>
+                    <p style="color: var(--text-light);">Ahmed Ben Bella</p>
+                    <p style="color: var(--text-light);">Faculté des Sciences de la Nature et de la Vie</p>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">💻</div>
+                    <h4>Plateforme</h4>
+                    <p><a href="https://elearn.univ-oran1.dz" style="color: var(--primary-color);">elearning.univ-oran1.dz</a></p>
+                    <p style="color: var(--text-light);">Messagerie intégrée</p>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h4>Contact</h4>
+                    <p>Via la messagerie de</p>
+                    <p>la plateforme e-learning</p>
+                    <a href="mailto:contact@univ-oran1.dz" class="download-btn" style="margin-top: 10px;">Envoyer un Message</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024-2025 Université d'Oran 1 - Ahmed Ben Bella | Tous droits réservés</p>
+        <p style="margin-top: 15px;">
             <a href="https://github.com/kader68Biology" target="_blank">GitHub</a> | 
             <a href="https://kader68biology.github.io/Drosophila-Dev-Control/" target="_blank">GitHub Pages</a>
         </p>
-        <p style="margin-top: 15px; font-size: 0.9rem;">
+        <p style="margin-top: 15px; font-size: 0.9em;">
             Dr Abdelkader ALLOUCHE - Maître de Conférences en Biologie<br>
             Département de Biotechnologie
         </p>
-    </div>
-</footer>
+    </footer>
 
-<script>
-    // Mobile menu toggle
-    document.querySelector('.menu-toggle').addEventListener('click', function() {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    });
-</script>
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
 
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
