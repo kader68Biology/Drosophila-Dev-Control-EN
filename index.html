@@ -4,645 +4,284 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aspect Génétique du Développement Embryonnaire - L3 Génétique</title>
-    <style>
-        :root {
-            --primary-color: #2c7bb6;
-            --secondary-color: #1a5490;
-            --accent-color: #006d5b;
-            --light-bg: #f4f7fa;
-            --white: #ffffff;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --border-color: #e0e0e0;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        header {
-            background: var(--white);
-            padding: 20px 0;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: var(--white);
-            padding: 60px 20px;
-            text-align: center;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .hero h1 {
-            color: var(--secondary-color);
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            color: var(--text-light);
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-
-        .hero-info {
-            background: var(--light-bg);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px auto;
-            max-width: 800px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Resources Section */
-        .resources {
-            background: var(--white);
-            padding: 40px 20px;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .section-title {
-            text-align: center;
-            color: var(--secondary-color);
-            font-size: 2em;
-            margin-bottom: 40px;
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .resource-card {
-            background: var(--light-bg);
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 5px solid var(--primary-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .resource-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-
-        .resource-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        .resource-card ul {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .resource-card li {
-            padding: 8px 0;
-            color: var(--text-light);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .resource-card li:last-child {
-            border-bottom: none;
-        }
-
-        .resource-card a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .resource-card a:hover {
-            text-decoration: underline;
-        }
-
-        .download-btn {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--white);
-            padding: 8px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9em;
-            transition: background 0.3s;
-        }
-
-        .download-btn:hover {
-            background: var(--secondary-color);
-        }
-
-        /* Video Section */
-        .video-section {
-            background: var(--white);
-            padding: 40px 20px;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            text-align: center;
-        }
-
-        .video-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #000;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        /* Documents Section */
-        .documents {
-            background: var(--white);
-            padding: 40px 20px;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .doc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .doc-card {
-            background: var(--light-bg);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .doc-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .doc-icon {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-
-        /* Activities Section */
-        .activities {
-            background: var(--white);
-            padding: 40px 20px;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .activity-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .activity-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: var(--white);
-            padding: 25px;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .activity-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .activity-card h3 {
-            margin-bottom: 15px;
-        }
-
-        .activity-card a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 600;
-            display: block;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .activity-card a:last-child {
-            border-bottom: none;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--white);
-            padding: 40px 20px;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-item {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .contact-icon {
-            font-size: 2em;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--secondary-color);
-            color: var(--white);
-            padding: 30px 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: var(--white);
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 1.8em;
-            }
-
-            .resources-grid,
-            .doc-grid,
-            .activity-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="CSS/style.css" rel="stylesheet">
 </head>
 <body>
-        <!-- Header -->
-    <header>
-        <div class="header-top">
-            <div class="container">
-                <div class="header-top-content">
-                    <!-- University Logo & Info -->
-                    <div class="university-header">
-                        <img src="activities/logo_univ_oran1.png" alt="Université d'Oran 1" class="header-logo">
-                        <div class="university-info">
-                            <h2>Université d'Oran 1<br>Ahmed Ben Bella</h2>
-                            <p>Faculté des Sciences de la Nature et de la Vie</p>
-                            <p>Département de Biotechnologie</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Instructor Info -->
-                    <div class="instructor-header">
-                        <img src="activities/prof_photo.jpg" alt="Dr Abdelkader ALLOUCHE" class="header-instructor-photo">
-                        <div class="instructor-details">
-                            <h3>Dr Abdelkader ALLOUCHE</h3>
-                            <p>Maître de Conférences en Biologie</p>
-                            <a href="mailto:allouche.abdelkader@univ-oran1.dz" class="instructor-email">
-                                📧 allouche.abdelkader@univ-oran1.dz
-                            </a>
-                        </div>
+    <!-- Spinner -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Header Top Section -->
+    <header class="header-top-section">
+        <div class="container">
+            <div class="header-top-content">
+                <!-- University Info -->
+                <div class="university-header">
+                    <img src="activities/logo_univ_oran1.png" alt="Université d'Oran 1" class="header-logo" onerror="this.style.display='none'">
+                    <div class="university-info">
+                        <h2>Université d'Oran 1<br>Ahmed Ben Bella</h2>
+                        <p>Faculté des Sciences de la Nature et de la Vie</p>
+                        <p>Département de Biotechnologie</p>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Navigation Bar -->
-        <div class="navbar-light sticky-top">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg">
-                    <a href="index.html" class="navbar-brand">
-                        <img src="activities/logo_univ_oran1.png" alt="Logo" class="nav-logo">
-                        Drosophila Dev
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#accueil">Accueil</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#cours">Cours</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#video">Vidéo</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#documents">Documents</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#activities">Activités</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Contact</a>
-                            </li>
-                        </ul>
+                
+                <!-- Instructor Info -->
+                <div class="instructor-header">
+                    <img src="activities/prof_photo.jpg" alt="Dr Abdelkader ALLOUCHE" class="header-instructor-photo" onerror="this.src='https://via.placeholder.com/80x80?text=Photo'">
+                    <div class="instructor-details">
+                        <h3>Dr Abdelkader ALLOUCHE</h3>
+                        <p>Maître de Conférences en Biologie</p>
+                        <a href="mailto:allouche.abdelkader@univ-oran1.dz" class="instructor-email">
+                            <i class="fas fa-envelope"></i> allouche.abdelkader@univ-oran1.dz
+                        </a>
                     </div>
-                </nav>
+                </div>
             </div>
         </div>
     </header>
 
-            <!-- Hero Section -->
-        <section class="hero" id="accueil">
-            <div class="hero-container">
-                <!-- Left Sidebar - University Info -->
-                <div class="hero-sidebar">
-                    <div class="university-logo">
-                        <img src="activities/logo_univ_oran1.png" alt="Université d'Oran 1" class="univ-logo-img">
-                        <h3>Université d'Oran 1<br>Ahmed Ben Bella</h3>
-                        <p>Faculté des Sciences de la Nature et de la Vie</p>
-                        <p>Département de Biotechnologie</p>
+    <!-- Navigation Bar -->
+    <div class="navbar-light sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a href="index.html" class="navbar-brand">
+                    <img src="activities/logo_univ_oran1.png" alt="Logo" class="nav-logo" onerror="this.style.display='none'">
+                    🧬 Drosophila Dev
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#accueil">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#cours">Cours</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#video">Vidéo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#documents">Documents</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#activities">Activités</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Aspect Génétique du Développement Embryonnaire</h1>
+                <p class="hero-subtitle">Maîtrisez les mécanismes du développement chez <em>Drosophila melanogaster</em></p>
+                
+                <!-- Info Badges -->
+                <div class="hero-badges">
+                    <div class="badge-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>L3 Génétique - 2024-2025</span>
                     </div>
-                    
-                    <div class="instructor-info">
-                        <img src="activities/prof_photo.jpg" alt="Dr Abdelkader ALLOUCHE" class="instructor-photo">
-                        <h4>Dr Abdelkader ALLOUCHE</h4>
-                        <p>Maître de Conférences en Biologie</p>
-                        <a href="mailto:allouche.abdelkader@univ-oran1.dz" class="email-link">📧 allouche.abdelkader@univ-oran1.dz</a>
+                    <div class="badge-item">
+                        <i class="fas fa-book"></i>
+                        <span>Module: Génétique du Développement</span>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Cycle: ~10 jours à 25°C</span>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fas fa-microscope"></i>
+                        <span>Organisme modèle holométabole</span>
                     </div>
                 </div>
                 
-                <!-- Main Content Area -->
-                <div class="hero-main">
-                    <div class="hero-header">
-                        <h1>Aspect Génétique du Développement Embryonnaire<br>chez <em>Drosophila melanogaster</em></h1>
-                        <p class="hero-subtitle">Cycle de vie • Ovogenèse • Régulation génétique • Segmentation</p>
-                    </div>
-                    
-                    <!-- Info Badges -->
-                    <div class="hero-badges">
-                        <div class="badge">
-                            <span class="badge-icon">🎓</span>
-                            <span class="badge-text">L3 Génétique - 2024-2025</span>
-                        </div>
-                        <div class="badge">
-                            <span class="badge-icon">📚</span>
-                            <span class="badge-text">Module: Génétique du Développement</span>
-                        </div>
-                        <div class="badge">
-                            <span class="badge-icon">⏱️</span>
-                            <span class="badge-text">Cycle: ~10 jours à 25°C</span>
-                        </div>
-                        <div class="badge">
-                            <span class="badge-icon">🔬</span>
-                            <span class="badge-text">Organisme modèle holométabole</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Navigation Tabs -->
-                    <div class="hero-tabs">
-                        <a href="#cours" class="tab active">
-                            <span class="tab-icon">📋</span>
-                            <span class="tab-text">Ressources Pédagogiques</span>
-                        </a>
-                        <a href="#documents" class="tab">
-                            <span class="tab-icon">📄</span>
-                            <span class="tab-text">Documents PDF</span>
-                        </a>
-                        <a href="#activities" class="tab">
-                            <span class="tab-icon">🎮</span>
-                            <span class="tab-text">Activités Interactives</span>
-                        </a>
-                        <a href="#contact" class="tab">
-                            <span class="tab-icon">📧</span>
-                            <span class="tab-text">Contact</span>
-                        </a>
-                    </div>
-                    
-                    <!-- Quick Actions -->
-                    <div class="hero-actions">
-                        <a href="#cours" class="btn btn-primary">Accéder aux Ressources</a>
-                        <a href="documents/cours_drosophila.pdf" class="btn btn-secondary">📥 Télécharger PDF</a>
-                    </div>
+                <!-- Action Buttons -->
+                <div class="hero-actions">
+                    <a href="#cours" class="btn btn-primary-custom">
+                        <i class="fas fa-book-open"></i> Accéder aux Ressources
+                    </a>
+                    <a href="documents/cours_drosophila.pdf" class="btn btn-secondary-custom">
+                        <i class="fas fa-download"></i> Télécharger PDF
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Announcement -->
-        <section class="resources">
-            <h2 class="section-title">📢 Annonce Importante</h2>
-            <div class="resource-card" style="max-width: 800px; margin: 0 auto;">
-                <p>Mise en ligne des ressources pédagogiques et informations pratiques</p>
-                <br>
-                <a href="activities/annonce_bienvenue.html" class="download-btn">Consulter l'annonce</a>
+    <!-- Announcement Section -->
+    <section class="announcement-section">
+        <div class="container">
+            <div class="announcement-card">
+                <div class="announcement-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <div class="announcement-content">
+                    <h3>Annonce Importante</h3>
+                    <p>Mise en ligne des ressources pédagogiques et informations pratiques</p>
+                    <a href="activities/annonce_bienvenue.html" class="btn btn-announcement">
+                        <i class="fas fa-eye"></i> Consulter l'annonce
+                    </a>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-                <!-- Resources Section -->
-        <section class="resources" id="cours">
-            <h2 class="section-title">Ressources Pédagogiques</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
-                Accédez à l'ensemble des supports de cours, documents PDF et activités interactives
-            </p>
+    <!-- Resources Section -->
+    <section class="resources-section" id="cours">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Ressources Pédagogiques</h2>
+                <p class="section-subtitle">Accédez à l'ensemble des supports de cours, documents PDF et activités interactives</p>
+            </div>
             
             <div class="resources-grid">
                 <!-- Développement Embryonnaire -->
                 <div class="resource-card">
-                    <div class="resource-icon">🔬</div>
+                    <div class="resource-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
                     <h3>Développement Embryonnaire</h3>
                     <ul>
-                        <li>Signalisation terminale (Torso)</li>
-                        <li>Ovogenèse et mise en place des axes</li>
-                        <li>Activation du récepteur</li>
-                        <li>Cascade Ras/MAPK</li>
+                        <li><i class="fas fa-check"></i> Signalisation terminale (Torso)</li>
+                        <li><i class="fas fa-check"></i> Ovogenèse et mise en place des axes</li>
+                        <li><i class="fas fa-check"></i> Activation du récepteur</li>
+                        <li><i class="fas fa-check"></i> Cascade Ras/MAPK</li>
                     </ul>
-                    <a href="documents/cours_drosophila.pdf" class="download-btn">📄 Télécharger PDF</a>
+                    <a href="documents/cours_drosophila.pdf" class="btn-resource">
+                        <i class="fas fa-file-pdf"></i> Télécharger PDF
+                    </a>
                 </div>
 
                 <!-- Régulation Maternelle -->
                 <div class="resource-card">
-                    <div class="resource-icon">🧬</div>
+                    <div class="resource-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
                     <h3>Régulation Maternelle</h3>
                     <ul>
-                        <li>Axes Antéro-Postérieur et Dorso-Ventral</li>
-                        <li>Système antérieur (Bicoid)</li>
-                        <li>Système postérieur (Nanos/Oskar)</li>
-                        <li>Système dorso-ventral (Dorsal)</li>
+                        <li><i class="fas fa-check"></i> Axes Antéro-Postérieur et Dorso-Ventral</li>
+                        <li><i class="fas fa-check"></i> Système antérieur (Bicoid)</li>
+                        <li><i class="fas fa-check"></i> Système postérieur (Nanos/Oskar)</li>
+                        <li><i class="fas fa-check"></i> Système dorso-ventral (Dorsal)</li>
                     </ul>
-                    <a href="documents/cours_drosophila_ovogenese.pdf" class="download-btn">📄 Télécharger PDF</a>
+                    <a href="documents/cours_drosophila_ovogenese.pdf" class="btn-resource">
+                        <i class="fas fa-file-pdf"></i> Télécharger PDF
+                    </a>
                 </div>
 
                 <!-- Cycle de Vie & Segmentation -->
                 <div class="resource-card">
-                    <div class="resource-icon">🔄</div>
+                    <div class="resource-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
                     <h3>Cycle de Vie & Segmentation</h3>
                     <ul>
-                        <li>Cycle de vie Drosophila</li>
-                        <li>Ovogenèse et structure de l'œuf</li>
-                        <li>Cascade de segmentation</li>
-                        <li>Gènes homéotiques</li>
+                        <li><i class="fas fa-check"></i> Cycle de vie Drosophila</li>
+                        <li><i class="fas fa-check"></i> Ovogenèse et structure de l'œuf</li>
+                        <li><i class="fas fa-check"></i> Cascade de segmentation</li>
+                        <li><i class="fas fa-check"></i> Gènes homéotiques</li>
                     </ul>
-                    <a href="documents/cours_drosophila.pdf" class="download-btn">📄 Télécharger PDF</a>
+                    <a href="documents/cours_drosophila.pdf" class="btn-resource">
+                        <i class="fas fa-file-pdf"></i> Télécharger PDF
+                    </a>
                 </div>
 
-                <!-- 🎮 Cours HTML Interactifs -->
+                <!-- Cours HTML Interactifs -->
                 <div class="resource-card">
-                    <div class="resource-icon">🎮</div>
+                    <div class="resource-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
                     <h3>Cours HTML Interactifs</h3>
                     <ul>
-                        <li><a href="activities/cours_drosophila.html">→ Cycle de Vie (HTML)</a></li>
-                        <li><a href="activities/cours_drosophila_ovogenese.html">→ Ovogenèse (HTML)</a></li>
+                        <li><i class="fas fa-link"></i> <a href="activities/cours_drosophila.html">Cycle de Vie (HTML)</a></li>
+                        <li><i class="fas fa-link"></i> <a href="activities/cours_drosophila_ovogenese.html">Ovogenèse (HTML)</a></li>
                     </ul>
-                    <a href="activities/cours_drosophila.html" class="download-btn">Accéder</a>
+                    <a href="activities/cours_drosophila.html" class="btn-resource btn-html">
+                        <i class="fas fa-play"></i> Accéder
+                    </a>
                 </div>
 
-                <!-- 🧪 TD Interactifs -->
+                <!-- TD Interactifs -->
                 <div class="resource-card">
-                    <div class="resource-icon">🧪</div>
+                    <div class="resource-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
                     <h3>TD Interactifs</h3>
                     <ul>
-                        <li><a href="activities/TD2_axesAPDV_interactif.html">→ TD2: Axes AP/DV</a></li>
-                        <li><a href="activities/TD4_interactive.html">→ TD4: Segmentation</a></li>
-                        <li><a href="activities/OvoRegFinal_interactif.html">→ OvoReg Final</a></li>
+                        <li><i class="fas fa-link"></i> <a href="activities/TD2_axesAPDV_interactif.html">TD2: Axes AP/DV</a></li>
+                        <li><i class="fas fa-link"></i> <a href="activities/TD4_interactive.html">TD4: Segmentation</a></li>
+                        <li><i class="fas fa-link"></i> <a href="activities/OvoRegFinal_interactif.html">OvoReg Final</a></li>
                     </ul>
-                    <a href="activities/TD4_interactive.html" class="download-btn">Accéder aux TD</a>
+                    <a href="activities/TD4_interactive.html" class="btn-resource btn-html">
+                        <i class="fas fa-play"></i> Accéder aux TD
+                    </a>
                 </div>
 
-                <!-- 📋 Contrôles Continus (CC) -->
+                <!-- Contrôles Continus (CC) -->
                 <div class="resource-card">
-                    <div class="resource-icon">📋</div>
+                    <div class="resource-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
                     <h3>Contrôles Continus (CC)</h3>
                     <ul>
-                        <li>CC1 - Ovogenèse & Axes <em>(à venir)</em></li>
-                        <li>CC2 - Segmentation <em>(à venir)</em></li>
-                        <li>Corrigés types <em>(à venir)</em></li>
+                        <li><i class="fas fa-clock"></i> <span class="coming-soon">CC1 - Ovogenèse & Axes (à venir)</span></li>
+                        <li><i class="fas fa-clock"></i> <span class="coming-soon">CC2 - Segmentation (à venir)</span></li>
+                        <li><i class="fas fa-clock"></i> <span class="coming-soon">Corrigés types (à venir)</span></li>
                     </ul>
-                    <span class="download-btn" style="background:#999;cursor:not-allowed;">📁 Bientôt disponible</span>
+                    <span class="btn-resource btn-disabled">
+                        <i class="fas fa-lock"></i> Bientôt disponible
+                    </span>
                 </div>
 
-                <!-- 📊 Présentations PPTX -->
+                <!-- Présentations PPTX -->
                 <div class="resource-card">
-                    <div class="resource-icon">📊</div>
+                    <div class="resource-icon">
+                        <i class="fas fa-file-powerpoint"></i>
+                    </div>
                     <h3>Présentations PPTX</h3>
                     <ul>
-                        <li>Support de cours L3 <em>(à venir)</em></li>
-                        <li>Schémas animés <em>(à venir)</em></li>
-                        <li>Révisions examen <em>(à venir)</em></li>
+                        <li><i class="fas fa-clock"></i> <span class="coming-soon">Support de cours L3 (à venir)</span></li>
+                        <li><i class="fas fa-clock"></i> <span class="coming-soon">Schémas animés (à venir)</span></li>
+                        <li><i class="fas fa-clock"></i> <span class="coming-soon">Révisions examen (à venir)</span></li>
                     </ul>
-                    <span class="download-btn" style="background:#999;cursor:not-allowed;">📁 Bientôt disponible</span>
+                    <span class="btn-resource btn-disabled">
+                        <i class="fas fa-lock"></i> Bientôt disponible
+                    </span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Video Section -->
-        <section class="video-section" id="video">
-            <h2 class="section-title">Vidéo d'Annonce</h2>
-            <p style="margin-bottom: 20px; color: var(--text-light);">Présentation du module et des ressources</p>
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Vidéo d'Annonce</h2>
+                <p class="section-subtitle">Présentation du module et des ressources</p>
+            </div>
             
             <div class="video-container">
                 <video width="100%" controls>
@@ -651,171 +290,254 @@
                 </video>
             </div>
 
-            <div style="margin-top: 30px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <h3 style="color: var(--secondary-color); margin-bottom: 15px;">Bienvenue dans le module</h3>
-                <p>Découvrez dans cette vidéo :</p>
-                <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-light);">
-                    <li>Les objectifs pédagogiques du cours</li>
-                    <li>L'organisation des ressources en ligne</li>
-                    <li>Les modalités d'accès et d'évaluation</li>
-                    <li>Les recommandations pour réussir</li>
+            <div class="video-info">
+                <h3>Bienvenue dans le module</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Les objectifs pédagogiques du cours</li>
+                    <li><i class="fas fa-check-circle"></i> L'organisation des ressources en ligne</li>
+                    <li><i class="fas fa-check-circle"></i> Les modalités d'accès et d'évaluation</li>
+                    <li><i class="fas fa-check-circle"></i> Les recommandations pour réussir</li>
                 </ul>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Documents Section -->
-        <section class="documents" id="documents">
-            <h2 class="section-title">Documents de Cours</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
-                Téléchargez ou consultez les supports
-            </p>
+    <!-- Documents Section -->
+    <section class="documents-section" id="documents">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Documents de Cours</h2>
+                <p class="section-subtitle">Téléchargez ou consultez les supports</p>
+            </div>
             
-            <div class="doc-grid">
-                <div class="doc-card">
-                    <div class="doc-icon">📄</div>
+            <div class="documents-grid">
+                <div class="document-card">
+                    <div class="document-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
                     <h4>Annonce Bienvenue</h4>
-                    <p style="color: var(--text-light); font-size: 0.9em; margin: 10px 0;">
-                        Informations Générales<br>Présentation du module
-                    </p>
-                    <a href="activities/annonce_bienvenue.html" class="download-btn">Consulter</a>
+                    <p>Informations Générales<br>Présentation du module</p>
+                    <a href="activities/annonce_bienvenue.html" class="btn-document">
+                        <i class="fas fa-eye"></i> Consulter
+                    </a>
                 </div>
 
-                <div class="doc-card">
-                    <div class="doc-icon">📚</div>
+                <div class="document-card">
+                    <div class="document-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
                     <h4>Cours Cycle de Vie</h4>
-                    <p style="color: var(--text-light); font-size: 0.9em; margin: 10px 0;">
-                        Développement & Segmentation<br>Version PDF & HTML
-                    </p>
-                    <a href="documents/cours_drosophila.pdf" class="download-btn">PDF</a>
-                    <a href="activities/cours_drosophila.html" class="download-btn" style="margin-top: 5px;">HTML</a>
+                    <p>Développement & Segmentation<br>Version PDF & HTML</p>
+                    <div class="document-buttons">
+                        <a href="documents/cours_drosophila.pdf" class="btn-document">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
+                        <a href="activities/cours_drosophila.html" class="btn-document btn-html">
+                            <i class="fas fa-globe"></i> HTML
+                        </a>
+                    </div>
                 </div>
 
-                <div class="doc-card">
-                    <div class="doc-icon">🧬</div>
+                <div class="document-card">
+                    <div class="document-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
                     <h4>Cours Ovogenèse</h4>
-                    <p style="color: var(--text-light); font-size: 0.9em; margin: 10px 0;">
-                        Régulation Maternelle<br>Version PDF & HTML
-                    </p>
-                    <a href="documents/cours_drosophila_ovogenese.pdf" class="download-btn">PDF</a>
-                    <a href="activities/cours_drosophila_ovogenese.html" class="download-btn" style="margin-top: 5px;">HTML</a>
+                    <p>Régulation Maternelle<br>Version PDF & HTML</p>
+                    <div class="document-buttons">
+                        <a href="documents/cours_drosophila_ovogenese.pdf" class="btn-document">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
+                        <a href="activities/cours_drosophila_ovogenese.html" class="btn-document btn-html">
+                            <i class="fas fa-globe"></i> HTML
+                        </a>
+                    </div>
                 </div>
 
-                <div class="doc-card">
-                    <div class="doc-icon">🎮</div>
+                <div class="document-card">
+                    <div class="document-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
                     <h4>Activités Interactives</h4>
-                    <p style="color: var(--text-light); font-size: 0.9em; margin: 10px 0;">
-                        TD & Diagrammes<br>Exercices pratiques
-                    </p>
-                    <a href="courses.html" class="download-btn">Accéder</a>
+                    <p>TD & Diagrammes<br>Exercices pratiques</p>
+                    <a href="courses.html" class="btn-document">
+                        <i class="fas fa-play"></i> Accéder
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Activities Section -->
-        <section class="activities" id="activities">
-            <h2 class="section-title">🎮 Activités Interactives</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
-                Exercices et simulations interactives pour approfondir vos connaissances
-            </p>
+    <!-- Activities Section -->
+    <section class="activities-section" id="activities">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title"><i class="fas fa-gamepad"></i> Activités Interactives</h2>
+                <p class="section-subtitle">Exercices et simulations interactives pour approfondir vos connaissances</p>
+            </div>
             
-            <div class="activity-grid">
+            <div class="activities-grid">
                 <div class="activity-card">
-                    <h3>TD & Exercices</h3>
-                    <a href="activities/TD2_axesAPDV_interactif.html">→ TD2: Axes AP/DV</a>
-                    <a href="activities/TD4_interactive.html">→ TD4 Interactive</a>
-                    <a href="activities/OvoRegFinal_interactif.html">→ OvoReg Final</a>
+                    <h3><i class="fas fa-flask"></i> TD & Exercices</h3>
+                    <a href="activities/TD2_axesAPDV_interactif.html"><i class="fas fa-arrow-right"></i> TD2: Axes AP/DV</a>
+                    <a href="activities/TD4_interactive.html"><i class="fas fa-arrow-right"></i> TD4: Segmentation</a>
+                    <a href="activities/OvoRegFinal_interactif.html"><i class="fas fa-arrow-right"></i> OvoReg Final</a>
                 </div>
 
                 <div class="activity-card">
-                    <h3>Diagrammes Interactifs</h3>
-                    <a href="activities/Diagrammes_Interactifs_Drosophile.html">→ Diagrammes Drosophile</a>
-                    <a href="activities/Diagrammes_AP_Interactif.html">→ Diagrammes AP</a>
+                    <h3><i class="fas fa-chart-bar"></i> Diagrammes Interactifs</h3>
+                    <a href="activities/Diagrammes_Interactifs_Drosophile.html"><i class="fas fa-arrow-right"></i> Diagrammes Drosophile</a>
+                    <a href="activities/Diagrammes_AP_Interactif.html"><i class="fas fa-arrow-right"></i> Diagrammes AP</a>
                 </div>
 
                 <div class="activity-card">
-                    <h3>Cours HTML Interactifs</h3>
-                    <a href="activities/cours_drosophila.html">→ Cycle de Vie (HTML)</a>
-                    <a href="activities/cours_drosophila_ovogenese.html">→ Ovogenèse (HTML)</a>
+                    <h3><i class="fas fa-book-open"></i> Cours HTML Interactifs</h3>
+                    <a href="activities/cours_drosophila.html"><i class="fas fa-arrow-right"></i> Cycle de Vie (HTML)</a>
+                    <a href="activities/cours_drosophila_ovogenese.html"><i class="fas fa-arrow-right"></i> Ovogenèse (HTML)</a>
                 </div>
 
                 <div class="activity-card">
-                    <h3>Ressources Visuelles</h3>
-                    <a href="activities/fig01_cycle_vie.png">→ Figure 1: Cycle de Vie</a>
-                    <a href="activities/fig02_ovariole.png">→ Figure 2: Ovariole</a>
-                    <a href="activities/fig05_axes_polarite.png">→ Figure 5: Axes Polarité</a>
-                    <a href="courses.html">→ Voir toutes les figures</a>
+                    <h3><i class="fas fa-images"></i> Ressources Visuelles</h3>
+                    <a href="activities/fig01_cycle_vie.png"><i class="fas fa-arrow-right"></i> Figure 1: Cycle de Vie</a>
+                    <a href="activities/fig02_ovariole.png"><i class="fas fa-arrow-right"></i> Figure 2: Ovariole</a>
+                    <a href="activities/fig05_axes_polarite.png"><i class="fas fa-arrow-right"></i> Figure 5: Axes Polarité</a>
+                    <a href="courses.html"><i class="fas fa-arrow-right"></i> Voir toutes les figures</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <h2 class="section-title">Contact & Informations</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
-                Besoin d'aide ou d'informations ?
-            </p>
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Contact & Informations</h2>
+                <p class="section-subtitle">Besoin d'aide ou d'informations ?</p>
+            </div>
             
             <div class="contact-grid">
                 <div class="contact-item">
-                    <div class="contact-icon">👨‍🏫</div>
+                    <div class="contact-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
                     <h4>Enseignant</h4>
                     <p>Dr Abdelkader ALLOUCHE</p>
-                    <p style="color: var(--text-light);">Maître de Conférences en Biologie</p>
+                    <p class="contact-detail">Maître de Conférences en Biologie</p>
                 </div>
 
                 <div class="contact-item">
-                    <div class="contact-icon">🏛️</div>
+                    <div class="contact-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
                     <h4>Université</h4>
                     <p>Université d'Oran 1</p>
-                    <p style="color: var(--text-light);">Ahmed Ben Bella</p>
-                    <p style="color: var(--text-light);">Faculté des Sciences de la Nature et de la Vie</p>
+                    <p class="contact-detail">Ahmed Ben Bella</p>
+                    <p class="contact-detail">Faculté des Sciences de la Nature et de la Vie</p>
                 </div>
 
                 <div class="contact-item">
-                    <div class="contact-icon">💻</div>
+                    <div class="contact-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
                     <h4>Plateforme</h4>
-                    <p><a href="https://elearn.univ-oran1.dz" style="color: var(--primary-color);">elearning.univ-oran1.dz</a></p>
-                    <p style="color: var(--text-light);">Messagerie intégrée</p>
+                    <p><a href="https://elearn.univ-oran1.dz" target="_blank">elearning.univ-oran1.dz</a></p>
+                    <p class="contact-detail">Messagerie intégrée</p>
                 </div>
 
                 <div class="contact-item">
-                    <div class="contact-icon">📧</div>
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
                     <h4>Contact</h4>
                     <p>Via la messagerie de</p>
-                    <p>la plateforme e-learning</p>
-                    <a href="mailto:contact@univ-oran1.dz" class="download-btn" style="margin-top: 10px;">Envoyer un Message</a>
+                    <p class="contact-detail">la plateforme e-learning</p>
+                    <a href="mailto:allouche.abdelkader@univ-oran1.dz" class="btn-contact">
+                        <i class="fas fa-paper-plane"></i> Envoyer un Message
+                    </a>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024-2025 Université d'Oran 1 - Ahmed Ben Bella | Tous droits réservés</p>
-        <p style="margin-top: 15px;">
-            <a href="https://github.com/kader68Biology" target="_blank">GitHub</a> | 
-            <a href="https://kader68biology.github.io/Drosophila-Dev-Control/" target="_blank">GitHub Pages</a>
-        </p>
-        <p style="margin-top: 15px; font-size: 0.9em;">
-            Dr Abdelkader ALLOUCHE - Maître de Conférences en Biologie<br>
-            Département de Biotechnologie
-        </p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2024-2025 Université d'Oran 1 - Ahmed Ben Bella | Tous droits réservés</p>
+                    <p>Dr Abdelkader ALLOUCHE - Maître de Conférences en Biologie</p>
+                    <p>Département de Biotechnologie</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/kader68Biology" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://kader68biology.github.io/Drosophila-Dev-Control/" target="_blank"><i class="fas fa-globe"></i> GitHub Pages</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            const nav = document.querySelector('nav ul');
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        // Spinner
+        window.addEventListener('load', function () {
+            var spinner = document.getElementById('spinner');
+            if (spinner) {
+                spinner.classList.remove('show');
+            }
         });
 
-        // Smooth scroll
+        // Back to Top
+        var backToTop = document.querySelector('.back-to-top');
+        if (backToTop) {
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.display = 'flex';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+        }
+
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar Active State
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
             });
         });
     </script>
