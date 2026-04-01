@@ -867,3 +867,25 @@
         height: 80px;
     }
 }
+/********** Hero Section Fixes **********/
+.instructor-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #f69050;
+    object-fit: cover;
+    background: #fff;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.univ-logo-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    display: block;
+    margin: 0 auto 15px auto;
+}
