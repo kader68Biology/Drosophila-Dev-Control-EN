@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Génétique du Développement | Drosophila melanogaster | Université d'Oran 1</title>
-    <!-- Font Awesome 6 (gratuit, icônes pro) -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -14,7 +14,7 @@
         }
 
         :root {
-            --primary-color: #0f3b5f;      /* bleu profond académique */
+            --primary-color: #0f3b5f;
             --secondary-color: #1c6e8f;
             --accent-color: #1b7e6b;
             --light-bg: #f8fafc;
@@ -42,7 +42,7 @@
             padding: 0 24px;
         }
 
-        /* ========== HEADER RAFFINÉ ========== */
+        /* ========== HEADER ========== */
         .site-header {
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(2px);
@@ -51,7 +51,6 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.2s ease;
         }
 
         .header-container {
@@ -63,7 +62,6 @@
             margin: 0 auto;
         }
 
-        /* Logo + image */
         .brand {
             display: flex;
             align-items: center;
@@ -72,7 +70,7 @@
         }
 
         .logo-img {
-            height: 96px;      /* au lieu de 48px (x2) */            
+            height: 96px;
             width: auto;
             border-radius: 12px;
             transition: transform 0.2s;
@@ -97,7 +95,6 @@
             letter-spacing: 0.2px;
         }
 
-        /* Navigation */
         .nav-menu {
             display: flex;
             gap: 2rem;
@@ -119,87 +116,71 @@
             border-bottom-color: var(--primary-color);
         }
 
-        /* Photo de profil + coordonnées */
-.header-profile {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-left: 1rem;
-}
+        /* Photo + coordonnées */
+        .header-profile {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-left: 1rem;
+        }
 
-.profile-photo {
-    width: 88px;
-    height: 88px;
-    border-radius: 100%;
-    object-fit: cover;
-    border: 2px solid var(--white);
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.2s;
-    background: #f0f2f5;
-}
-.profile-photo:hover {
-    transform: scale(1.02);
-}
+        .profile-photo {
+            width: 88px;
+            height: 88px;
+            border-radius: 100%;
+            object-fit: cover;
+            border: 2px solid var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+            background: #f0f2f5;
+        }
+        .profile-photo:hover {
+            transform: scale(1.02);
+        }
 
-.teacher-contact-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-}
+        .teacher-contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+        }
 
-.teacher-badge {
-    font-size: 0.8rem;
-    font-weight: 500;
-    background: #eef2ff;
-    padding: 4px 10px;
-    border-radius: 30px;
-    color: var(--primary-color);
-    display: inline-block;
-}
+        .teacher-badge {
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: #eef2ff;
+            padding: 4px 10px;
+            border-radius: 30px;
+            color: var(--primary-color);
+            display: inline-block;
+        }
 
-.contact-details {
-    background: rgba(15, 59, 95, 0.08);
-    backdrop-filter: blur(4px);
-    border-radius: 20px;
-    padding: 10px 16px;
-    font-size: 0.75rem;
-    color: var(--text-dark);
-    max-width: 280px;
-    line-height: 1.4;
-    border: 1px solid rgba(0,0,0,0.05);
-    box-shadow: var(--shadow-sm);
-}
+        .contact-details {
+            background: rgba(15, 59, 95, 0.08);
+            backdrop-filter: blur(4px);
+            border-radius: 20px;
+            padding: 10px 16px;
+            font-size: 0.75rem;
+            color: var(--text-dark);
+            max-width: 280px;
+            line-height: 1.4;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
+        }
 
-.contact-details p {
-    margin: 4px 0;
-    white-space: nowrap;
-}
+        .contact-details p {
+            margin: 4px 0;
+            white-space: nowrap;
+        }
 
-/* Adaptation mobile */
-@media (max-width: 880px) {
-    .header-profile {
-        align-items: center;
-    }
-    .contact-details p {
-        white-space: normal;
-        font-size: 0.7rem;
-    }
-    .profile-photo {
-        width: 64px;
-        height: 64px;
-    }
-    .logo-img {
-        height: 64px;
-    }
-    .contact-details {
-        max-width: 200px;
-        padding: 6px 12px;
-    }
-    .teacher-badge {
-        font-size: 0.7rem;
-    }
-}
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            background: none;
+            border: none;
+        }
 
         /* Responsive */
         @media (max-width: 880px) {
@@ -226,27 +207,35 @@
             }
             .header-profile {
                 margin-left: 0;
+                align-items: center;
             }
-            .teacher-badge {
-                display: inline-block;
+            .contact-details p {
+                white-space: normal;
+                font-size: 0.7rem;
             }
             .profile-photo {
-                width: 38px;
-                height: 38px;
+                width: 64px;
+                height: 64px;
+            }
+            .logo-img {
+                height: 64px;
+            }
+            .contact-details {
+                max-width: 200px;
+                padding: 6px 12px;
             }
             .brand-title {
                 font-size: 1.1rem;
             }
         }
 
-        /* Sections communes */
+        /* Sections */
         section {
             background: var(--white);
             border-radius: 28px;
             box-shadow: var(--shadow-sm);
             padding: 2.5rem 2rem;
             margin: 2rem 0;
-            transition: all 0.2s;
         }
 
         .section-title {
@@ -268,7 +257,6 @@
             border-radius: 4px;
         }
 
-        /* Hero section améliorée */
         .hero {
             background: var(--gradient-hero);
             text-align: center;
@@ -306,7 +294,6 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* Grille ressources */
         .resources-grid, .doc-grid, .activity-grid, .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -363,7 +350,6 @@
             pointer-events: none;
         }
 
-        /* Video */
         .video-container {
             max-width: 800px;
             margin: 0 auto;
@@ -376,7 +362,6 @@
             display: block;
         }
 
-        /* Footer */
         footer {
             background: var(--primary-color);
             color: white;
@@ -411,7 +396,7 @@
 
 <div class="site-header">
     <div class="header-container">
-        <!-- Logo + texte -->
+        <!-- Logo -->
         <a href="#" class="brand">
             <img src="images/logo_univ_oran1.png" alt="Logo Université d'Oran 1" class="logo-img" onerror="this.src='https://placehold.co/96x96?text=🦟';">
             <div class="brand-text">
@@ -452,7 +437,7 @@
 </div>
 
 <main class="container">
-    <!-- Hero / Accueil -->
+    <!-- Hero -->
     <section id="accueil" class="hero">
         <h1>🧬 Aspect Génétique du Développement Embryonnaire</h1>
         <p style="font-size: 1.2rem; color: var(--text-light);">Maîtrisez les mécanismes moléculaires chez <strong>Drosophila melanogaster</strong></p>
@@ -466,12 +451,12 @@
         <div style="margin-top: 2rem;">
             <div class="resource-card" style="max-width: 700px; margin: 0 auto; background: #eef2ff;">
                 <p><i class="fas fa-bullhorn"></i> <strong>Mise en ligne</strong> des ressources pédagogiques et informations pratiques</p>
-                <a href="activities/annonce_bienvenue.html" class="download-btn" style="margin-top: 12px;">📢 Consulter l'annonce</a>
+                <a href="activities/annonce_bienvenue.html" class="download-btn" target="_blank" rel="noopener noreferrer" style="margin-top: 12px;">📢 Consulter l'annonce</a>
             </div>
         </div>
     </section>
 
-    <!-- Ressources pédagogiques (Cours) -->
+    <!-- Ressources pédagogiques -->
     <section id="cours" class="resources">
         <h2 class="section-title">📖 Ressources Pédagogiques</h2>
         <p style="text-align: center; margin-bottom: 2rem; color: var(--text-light);">Supports de cours, PDF, TD interactifs — téléchargez ou consultez en ligne</p>
@@ -486,7 +471,7 @@
                     <li>Activation du récepteur</li>
                     <li>Cascade Ras/MAPK</li>
                 </ul>
-                <a href="documents/cours_drosophila.pdf" class="download-btn">📄 Télécharger PDF</a>
+                <a href="documents/cours_drosophila.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">📄 Télécharger PDF</a>
             </div>
             <!-- Régulation Maternelle -->
             <div class="resource-card">
@@ -498,7 +483,7 @@
                     <li>Système postérieur (Nanos/Oskar)</li>
                     <li>Système dorso-ventral (Dorsal)</li>
                 </ul>
-                <a href="documents/cours_drosophila_ovogenese.pdf" class="download-btn">📑 Télécharger PDF</a>
+                <a href="documents/cours_drosophila_ovogenese.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">📑 Télécharger PDF</a>
             </div>
             <!-- Cycle de Vie & Segmentation -->
             <div class="resource-card">
@@ -510,28 +495,28 @@
                     <li>Cascade de segmentation</li>
                     <li>Gènes homéotiques</li>
                 </ul>
-                <a href="documents/cours_drosophila.pdf" class="download-btn">📘 Télécharger PDF</a>
+                <a href="documents/cours_drosophila.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">📘 Télécharger PDF</a>
             </div>
             <!-- Cours HTML Interactifs -->
             <div class="resource-card">
                 <div class="resource-icon"><i class="fas fa-laptop-code"></i></div>
                 <h3>Cours HTML Interactifs</h3>
                 <ul>
-                    <li><a href="activities/cours_drosophila.html">Cycle de Vie (HTML)</a></li>
-                    <li><a href="activities/cours_drosophila_ovogenese.html">Ovogenèse (HTML)</a></li>
+                    <li><a href="activities/cours_drosophila.html" target="_blank" rel="noopener noreferrer">Cycle de Vie (HTML)</a></li>
+                    <li><a href="activities/cours_drosophila_ovogenese.html" target="_blank" rel="noopener noreferrer">Ovogenèse (HTML)</a></li>
                 </ul>
-                <a href="activities/cours_drosophila.html" class="download-btn">🌐 Accéder</a>
+                <a href="activities/cours_drosophila.html" class="download-btn" target="_blank" rel="noopener noreferrer">🌐 Accéder</a>
             </div>
             <!-- TD Interactifs -->
             <div class="resource-card">
                 <div class="resource-icon"><i class="fas fa-puzzle-piece"></i></div>
                 <h3>TD Interactifs</h3>
                 <ul>
-                    <li><a href="activities/TD2_axesAPDV_interactif.html">TD2: Axes AP/DV</a></li>
-                    <li><a href="activities/TD4_interactive.html">TD4: Segmentation</a></li>
-                    <li><a href="activities/OvoRegFinal_interactif.html">OvoReg Final</a></li>
+                    <li><a href="activities/TD2_axesAPDV_interactif.html" target="_blank" rel="noopener noreferrer">TD2: Axes AP/DV</a></li>
+                    <li><a href="activities/TD4_interactive.html" target="_blank" rel="noopener noreferrer">TD4: Segmentation</a></li>
+                    <li><a href="activities/OvoRegFinal_interactif.html" target="_blank" rel="noopener noreferrer">OvoReg Final</a></li>
                 </ul>
-                <a href="activities/TD4_interactive.html" class="download-btn">🎯 Accéder aux TD</a>
+                <a href="activities/TD4_interactive.html" class="download-btn" target="_blank" rel="noopener noreferrer">🎯 Accéder aux TD</a>
             </div>
             <!-- Contrôles Continus (CC) -->
             <div class="resource-card">
@@ -557,7 +542,7 @@
         </div>
     </section>
 
-    <!-- Vidéo d'annonce -->
+    <!-- Vidéo -->
     <section id="video" class="video-section">
         <h2 class="section-title">🎥 Vidéo d'Annonce</h2>
         <p style="text-align: center; margin-bottom: 1.5rem;">Présentation du module, objectifs et organisation des ressources</p>
@@ -578,7 +563,7 @@
         </div>
     </section>
 
-    <!-- Documents de cours -->
+    <!-- Documents -->
     <section id="documents" class="documents">
         <h2 class="section-title">📂 Documents de Cours</h2>
         <p style="text-align: center; margin-bottom: 2rem;">Téléchargez ou consultez les supports au format PDF / HTML</p>
@@ -587,27 +572,27 @@
                 <div class="resource-icon"><i class="fas fa-envelope-open-text"></i></div>
                 <h4>Annonce Bienvenue</h4>
                 <p>Infos générales, présentation du module, planning</p>
-                <a href="activities/annonce_bienvenue.html" class="download-btn">Consulter</a>
+                <a href="activities/annonce_bienvenue.html" class="download-btn" target="_blank" rel="noopener noreferrer">Consulter</a>
             </div>
             <div class="doc-card">
                 <div class="resource-icon"><i class="fas fa-seedling"></i></div>
                 <h4>Cours Cycle de Vie</h4>
                 <p>Développement & Segmentation (PDF + HTML)</p>
-                <a href="documents/cours_drosophila.pdf" class="download-btn">PDF</a>
-                <a href="activities/cours_drosophila.html" class="download-btn" style="margin-left: 8px;">HTML</a>
+                <a href="documents/cours_drosophila.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">PDF</a>
+                <a href="activities/cours_drosophila.html" class="download-btn" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">HTML</a>
             </div>
             <div class="doc-card">
                 <div class="resource-icon"><i class="fas fa-frog"></i></div>
                 <h4>Cours Ovogenèse</h4>
                 <p>Régulation maternelle, axes embryonnaires</p>
-                <a href="documents/cours_drosophila_ovogenese.pdf" class="download-btn">PDF</a>
-                <a href="activities/cours_drosophila_ovogenese.html" class="download-btn" style="margin-left: 8px;">HTML</a>
+                <a href="documents/cours_drosophila_ovogenese.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">PDF</a>
+                <a href="activities/cours_drosophila_ovogenese.html" class="download-btn" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">HTML</a>
             </div>
             <div class="doc-card">
                 <div class="resource-icon"><i class="fas fa-microscope"></i></div>
                 <h4>Activités Interactives</h4>
                 <p>TD & Diagrammes, exercices pratiques</p>
-                <a href="courses.html" class="download-btn">Accéder</a>
+                <a href="courses.html" class="download-btn" target="_blank" rel="noopener noreferrer">Accéder</a>
             </div>
         </div>
     </section>
@@ -619,31 +604,31 @@
         <div class="activity-grid">
             <div class="activity-card">
                 <h3><i class="fas fa-brain"></i> TD & Exercices</h3>
-                <a href="activities/TD2_axesAPDV_interactif.html">📐 TD2: Axes AP/DV</a>
-                <a href="activities/TD4_interactive.html">📊 TD4 Interactive (Segmentation)</a>
-                <a href="activities/OvoRegFinal_interactif.html">🧬 OvoReg Final</a>
+                <a href="activities/TD2_axesAPDV_interactif.html" target="_blank" rel="noopener noreferrer">📐 TD2: Axes AP/DV</a>
+                <a href="activities/TD4_interactive.html" target="_blank" rel="noopener noreferrer">📊 TD4 Interactive (Segmentation)</a>
+                <a href="activities/OvoRegFinal_interactif.html" target="_blank" rel="noopener noreferrer">🧬 OvoReg Final</a>
             </div>
             <div class="activity-card">
                 <h3><i class="fas fa-diagram-project"></i> Diagrammes Interactifs</h3>
-                <a href="activities/Diagrammes_Interactifs_Drosophila.html">🦟 Diagrammes Drosophila</a>
-                <a href="activities/Diagrammes_AP_Interactif.html">📈 Diagrammes AP</a>
+                <a href="activities/Diagrammes_Interactifs_Drosophile.html" target="_blank" rel="noopener noreferrer">🦟 Diagrammes Drosophila</a>
+                <a href="activities/Diagrammes_AP_Interactif.html" target="_blank" rel="noopener noreferrer">📈 Diagrammes AP</a>
             </div>
             <div class="activity-card">
                 <h3><i class="fas fa-file-code"></i> Cours HTML Interactifs</h3>
-                <a href="activities/cours_drosophila.html">➡️ Cycle de Vie (HTML)</a>
-                <a href="activities/cours_drosophila_ovogenese.html">➡️ Ovogenèse (HTML)</a>
+                <a href="activities/cours_drosophila.html" target="_blank" rel="noopener noreferrer">➡️ Cycle de Vie (HTML)</a>
+                <a href="activities/cours_drosophila_ovogenese.html" target="_blank" rel="noopener noreferrer">➡️ Ovogenèse (HTML)</a>
             </div>
             <div class="activity-card">
                 <h3><i class="fas fa-image"></i> Ressources Visuelles</h3>
-                <a href="activities/fig01_cycle_vie.png">Figure 1: Cycle de Vie</a>
-                <a href="activities/fig02_ovariole.png">Figure 2: Ovariole</a>
-                <a href="activities/fig05_axes_polarite.png">Figure 5: Axes Polarité</a>
-                <a href="courses.html">📁 Voir toutes les figures</a>
+                <a href="activities/fig01_cycle_vie.png" target="_blank" rel="noopener noreferrer">Figure 1: Cycle de Vie</a>
+                <a href="activities/fig02_ovariole.png" target="_blank" rel="noopener noreferrer">Figure 2: Ovariole</a>
+                <a href="activities/fig05_axes_polarite.png" target="_blank" rel="noopener noreferrer">Figure 5: Axes Polarité</a>
+                <a href="courses.html" target="_blank" rel="noopener noreferrer">📁 Voir toutes les figures</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact & Infos -->
+    <!-- Contact -->
     <section id="contact" class="contact">
         <h2 class="section-title">📬 Contact & Informations</h2>
         <div class="contact-grid">
@@ -662,7 +647,7 @@
             <div class="contact-item">
                 <i class="fas fa-laptop" style="font-size: 2rem; color: var(--primary-color);"></i>
                 <h4>Plateforme e-learning</h4>
-                <a href="https://elearn.univ-oran1.dz" target="_blank" style="color: var(--primary-color);">elearn.univ-oran1.dz</a>
+                <a href="https://elearn.univ-oran1.dz" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">elearn.univ-oran1.dz</a>
                 <p style="color: var(--text-light);">Messagerie intégrée</p>
             </div>
             <div class="contact-item">
@@ -680,27 +665,26 @@
     <p style="margin-top: 12px;">
         <a href="#">Mentions légales</a> | 
         <a href="#">Accessibilité</a> | 
-        <a href="https://elearn.univ-oran1.dz">Plateforme officielle</a>
+        <a href="https://elearn.univ-oran1.dz" target="_blank" rel="noopener noreferrer">Plateforme officielle</a>
     </p>
     <p style="margin-top: 12px; font-size: 0.8rem;">Dernière mise à jour : ressources interactives disponibles — Dr ALLOUCHE</p>
 </footer>
 
-<!-- Script pour menu mobile -->
 <script>
+    // Menu mobile
     const toggleBtn = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
     if (toggleBtn && navMenu) {
         toggleBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
-        // Fermer le menu après clic sur lien (optionnel)
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
         });
     }
-    // Ajout d'un comportement smooth pour ancres
+    // Ancres smooth
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
