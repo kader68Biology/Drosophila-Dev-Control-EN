@@ -2,59 +2,444 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enseignant - Dr Abdelkader ALLOUCHE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Enseignant - Dr Abdelkader ALLOUCHE | Université d'Oran 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f4f4f4; }
-        .container { width: 90%; max-width: 1200px; margin: auto; overflow: hidden; padding: 20px; }
-        .navbar { background: #0f388f; color: #fff; padding: 10px 0; border-bottom: 3px solid #0056b3; }
-        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-        .navbar a { color: #fff; text-decoration: none; padding: 0 15px; }
-        .footer { background: #333; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
-        .profile-section { background: #fff; padding: 40px; border-radius: 5px; text-align: center; border: 1px solid #ddd; }
-        .btn-download { display: inline-block; background: #0f388f; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 4px; margin-top: 10px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0f3b5f;
+            --secondary-color: #1c6e8f;
+            --accent-color: #1b7e6b;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #475569;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.12);
+            --gradient-hero: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #f1f5f9 0%, #eef2ff 100%);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== HEADER (identique) ========== */
+        .site-header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(2px);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 96px;
+            width: auto;
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: -0.3px;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .brand-sub {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            letter-spacing: 0.2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            padding: 0.4rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .header-profile {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-left: 1rem;
+        }
+
+        .profile-photo {
+            width: 88px;
+            height: 88px;
+            border-radius: 100%;
+            object-fit: cover;
+            border: 2px solid var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+            background: #f0f2f5;
+        }
+        .profile-photo:hover {
+            transform: scale(1.02);
+        }
+
+        .teacher-contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        .teacher-badge {
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: #eef2ff;
+            padding: 4px 10px;
+            border-radius: 30px;
+            color: var(--primary-color);
+            display: inline-block;
+        }
+
+        .contact-details {
+            background: rgba(15, 59, 95, 0.08);
+            backdrop-filter: blur(4px);
+            border-radius: 20px;
+            padding: 10px 16px;
+            font-size: 0.75rem;
+            color: var(--text-dark);
+            max-width: 280px;
+            line-height: 1.4;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-details p {
+            margin: 4px 0;
+            white-space: nowrap;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            background: none;
+            border: none;
+        }
+
+        @media (max-width: 880px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 75%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem;
+                box-shadow: var(--shadow-md);
+                transition: left 0.3s ease;
+                z-index: 999;
+                align-items: flex-start;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .header-profile {
+                margin-left: 0;
+                align-items: center;
+            }
+            .contact-details p {
+                white-space: normal;
+                font-size: 0.7rem;
+            }
+            .profile-photo {
+                width: 64px;
+                height: 64px;
+            }
+            .logo-img {
+                height: 64px;
+            }
+            .brand-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Page enseignant spécifique */
+        .instructor-page {
+            background: var(--white);
+            border-radius: 28px;
+            box-shadow: var(--shadow-sm);
+            padding: 2.5rem 2rem;
+            margin: 2rem 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: -0.3px;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 0.8rem auto 0;
+            border-radius: 4px;
+        }
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .profile-picture-large {
+            flex: 0 0 200px;
+            text-align: center;
+        }
+        .profile-picture-large img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 100%;
+            border: 4px solid var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+        .profile-info {
+            flex: 2;
+            min-width: 250px;
+        }
+        .profile-info h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .profile-info .title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        .profile-info .description {
+            margin: 1rem 0;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        .info-card {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-color);
+        }
+        .info-card i {
+            color: var(--primary-color);
+            width: 30px;
+        }
+        .btn-contact {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            margin-top: 1rem;
+        }
+        .btn-contact:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 28px 28px 0 0;
+            margin-top: 2rem;
+        }
+        footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+        footer a:hover {
+            color: white;
+        }
     </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Drosophila-Dev | Univ Oran 1</a>
-        <div class="nav-links">
-            <a href="index.html">Accueil</a>
-            <a href="courses.html">Contenu du Cours</a>
-            <a href="instructor.html">Enseignant</a>
+<div class="site-header">
+    <div class="header-container">
+        <a href="index.html" class="brand">
+            <img src="images/logo_univ_oran1.png" alt="Logo Université d'Oran 1" class="logo-img" onerror="this.src='https://placehold.co/96x96?text=🦟';">
+            <div class="brand-text">
+                <span class="brand-title">Drosophila Dev</span>
+                <span class="brand-sub">Génétique & Développement</span>
+            </div>
+        </a>
+
+        <div class="nav-menu" id="navMenu">
+            <a href="index.html#accueil">Accueil</a>
+            <a href="index.html#cours">Cours</a>
+            <a href="index.html#video">Vidéo</a>
+            <a href="index.html#documents">Documents</a>
+            <a href="index.html#activities">Activités</a>
             <a href="contact.html">Contact</a>
         </div>
-    </div>
-</nav>
 
-<div class="container main-content">
-    <div class="profile-section">
-        <h2>À propos de l'Enseignant</h2>
-        <hr>
-        <h3>Dr Abdelkader ALLOUCHE</h3>
-        <p><strong>Maître de Conférences en Biologie</strong></p>
-        <p>Département de Biotechnologie</p>
-        <p>Faculté des Sciences de la Nature et de la Vie</p>
-        <p>Université d'Oran 1 - Ahmed Ben Bella</p>
-        
-        <div style="margin-top: 20px;">
-            <p><strong>Domaines d'expertise :</strong></p>
-            <p>Génétique du Développement, Biologie Moléculaire, Drosophila melanogaster</p>
+        <div class="header-profile">
+            <img src="images/photo_allouche.jpg" alt="Dr Abdelkader ALLOUCHE" class="profile-photo" onerror="this.src='https://placehold.co/88x88?text=👨🏫';">
+            <div class="teacher-contact-info">
+                <span class="teacher-badge">Dr A. Allouche</span>
+                <div class="contact-details">
+                    <p>🏛️ Université d'Oran 1 – Ahmed Ben Bella</p>
+                    <p>🔬 Faculté des Sciences de la nature et de la vie</p>
+                    <p>🧬 Département de Biotechnologie</p>
+                    <p>👨🏫 Maître de Conférence en Biologie</p>
+                    <p>📧 allouche.abdelkader@univ-oran1.dz</p>
+                    <p>📞 +213 794 289 260</p>
+                </div>
+            </div>
         </div>
 
-        <div style="margin-top: 30px;">
-            <a href="contact.html" class="btn-download">Contacter l'Enseignant</a>
-        </div>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p>&copy; 2024-2025 Université d'Oran 1</p>
+<main class="container">
+    <div class="instructor-page">
+        <h1 class="section-title">👨‍🏫 À propos de l’enseignant</h1>
+
+        <div class="profile-container">
+            <div class="profile-picture-large">
+                <img src="images/photo_allouche.jpg" alt="Dr Abdelkader ALLOUCHE" onerror="this.src='https://placehold.co/200x200?text=Dr+Allouche';">
+            </div>
+            <div class="profile-info">
+                <h2>Dr Abdelkader ALLOUCHE</h2>
+                <div class="title">Maître de Conférences en Biologie</div>
+                <p class="description">
+                    Enseignant-chercheur au Département de Biotechnologie de l’Université d’Oran 1 – Ahmed Ben Bella.
+                    Spécialisé en génétique du développement, biologie moléculaire et génétique des populations.
+                    Titulaire d’un doctorat en sciences biologiques, il encadre des travaux de recherche sur 
+                    <strong>Drosophila melanogaster</strong> comme organisme modèle pour l’étude des mécanismes 
+                    génétiques du développement embryonnaire.
+                </p>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-flask"></i> <strong>Domaines d’expertise</strong><br>
+                        Génétique du développement, Biologie moléculaire, Signalisation cellulaire, Épigénétique
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-chalkboard-teacher"></i> <strong>Enseignements</strong><br>
+                        L3 Génétique (UE Développement), M1 Biotechnologie (Génétique avancée)
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-microscope"></i> <strong>Projets de recherche</strong><br>
+                        Voies de signalisation Ras/MAPK chez la drosophile, détermination des axes embryonnaires
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-file-alt"></i> <strong>Publications</strong><br>
+                        Articles internationaux dans « Developmental Biology », « Genetics Research »
+                    </div>
+                </div>
+                <a href="contact.html" class="btn-contact"><i class="fas fa-envelope"></i> Contacter l’enseignant</a>
+            </div>
+        </div>
     </div>
+</main>
+
+<footer>
+    <p>© 2025 Université d'Oran 1 - Département de Biotechnologie | Aspect Génétique du Développement (L3 Génétique)</p>
+    <p style="margin-top: 12px;">
+        <a href="#">Mentions légales</a> | 
+        <a href="#">Accessibilité</a> | 
+        <a href="https://elearn.univ-oran1.dz" target="_blank" rel="noopener noreferrer">Plateforme officielle</a>
+    </p>
+    <p style="margin-top: 12px; font-size: 0.8rem;">Dernière mise à jour : ressources interactives disponibles — Dr ALLOUCHE</p>
 </footer>
 
+<script>
+    const toggleBtn = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+</script>
 </body>
 </html>
