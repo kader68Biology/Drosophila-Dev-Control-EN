@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Contact | Génétique du Développement | Université d'Oran 1</title>
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -24,6 +23,7 @@
             --border-color: #e2e8f0;
             --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
             --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.12);
             --gradient-hero: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
         }
 
@@ -40,7 +40,7 @@
             padding: 0 24px;
         }
 
-        /* ========== HEADER (identique à index.html) ========== */
+        /* ========== HEADER ========== */
         .site-header {
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(2px);
@@ -216,20 +216,12 @@
             .logo-img {
                 height: 64px;
             }
-            .contact-details {
-                max-width: 200px;
-                padding: 6px 12px;
-            }
             .brand-title {
                 font-size: 1.1rem;
             }
         }
 
-        /* Contenu principal */
-        main {
-            min-height: calc(100vh - 200px);
-        }
-
+        /* Section Contact (page dédiée) */
         .contact-page {
             background: var(--white);
             border-radius: 28px;
@@ -237,15 +229,16 @@
             padding: 2.5rem 2rem;
             margin: 2rem 0;
         }
-
-        .page-title {
+        .section-title {
             font-size: 2rem;
             font-weight: 700;
             color: var(--primary-color);
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.3px;
+            position: relative;
         }
-        .page-title:after {
+        .section-title:after {
             content: '';
             display: block;
             width: 70px;
@@ -254,25 +247,23 @@
             margin: 0.8rem auto 0;
             border-radius: 4px;
         }
-
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
-
         .contact-card {
             background: var(--light-bg);
             border-radius: 24px;
             padding: 2rem;
             text-align: center;
-            transition: transform 0.2s;
+            transition: all 0.25s;
             border: 1px solid var(--border-color);
         }
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-hover);
         }
         .contact-card i {
             font-size: 2.5rem;
@@ -281,7 +272,7 @@
         }
         .contact-card h3 {
             font-size: 1.4rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             color: var(--primary-color);
         }
         .contact-card p, .contact-card a {
@@ -292,49 +283,21 @@
             color: var(--secondary-color);
             text-decoration: underline;
         }
-
-        .form-container {
-            background: var(--light-bg);
-            border-radius: 24px;
-            padding: 2rem;
-            margin-top: 2rem;
-            border: 1px solid var(--border-color);
-        }
-        .form-container h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        .btn-submit {
+        .btn {
+            display: inline-block;
             background: var(--primary-color);
             color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
+            padding: 10px 24px;
             border-radius: 40px;
+            text-decoration: none;
             font-weight: 600;
-            cursor: pointer;
             transition: 0.2s;
+            margin-top: 1rem;
         }
-        .btn-submit:hover {
+        .btn:hover {
             background: var(--secondary-color);
+            transform: translateY(-2px);
         }
-
         footer {
             background: var(--primary-color);
             color: white;
@@ -350,15 +313,6 @@
         }
         footer a:hover {
             color: white;
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 0 16px;
-            }
-            .contact-page {
-                padding: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -384,14 +338,14 @@
         </div>
 
         <div class="header-profile">
-            <img src="images/photo_allouche.jpg" alt="Dr Abdelkader ALLOUCHE" class="profile-photo" onerror="this.src='https://placehold.co/88x88?text=👨‍🏫';">
+            <img src="images/photo_allouche.jpg" alt="Dr Abdelkader ALLOUCHE" class="profile-photo" onerror="this.src='https://placehold.co/88x88?text=👨🏫';">
             <div class="teacher-contact-info">
                 <span class="teacher-badge">Dr A. Allouche</span>
                 <div class="contact-details">
                     <p>🏛️ Université d'Oran 1 – Ahmed Ben Bella</p>
                     <p>🔬 Faculté des Sciences de la nature et de la vie</p>
                     <p>🧬 Département de Biotechnologie</p>
-                    <p>👨‍🏫 Maître de Conférence en Biologie</p>
+                    <p>👨🏫 Maître de Conférence en Biologie</p>
                     <p>📧 allouche.abdelkader@univ-oran1.dz</p>
                     <p>📞 +213 794 289 260</p>
                 </div>
@@ -406,54 +360,37 @@
 
 <main class="container">
     <div class="contact-page">
-        <h1 class="page-title">📬 Nous contacter</h1>
-        <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">Une question sur le cours, les TD ou les évaluations ? N'hésitez pas à nous écrire.</p>
-
+        <h2 class="section-title">📬 Contact & Informations</h2>
         <div class="contact-grid">
             <div class="contact-card">
-                <i class="fas fa-envelope"></i>
-                <h3>Email</h3>
-                <p><a href="mailto:allouche.abdelkader@univ-oran1.dz">allouche.abdelkader@univ-oran1.dz</a></p>
+                <i class="fas fa-chalkboard-user"></i>
+                <h3>Enseignant</h3>
+                <p>Dr Abdelkader ALLOUCHE</p>
+                <p>Maître de Conférences en Biologie</p>
+                <p><i class="fas fa-envelope"></i> allouche.abdelkader@univ-oran1.dz</p>
+                <p><i class="fas fa-phone"></i> +213 794 289 260</p>
             </div>
             <div class="contact-card">
-                <i class="fas fa-phone-alt"></i>
-                <h3>Téléphone</h3>
-                <p>+213 794 289 260</p>
-            </div>
-            <div class="contact-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Adresse</h3>
-                <p>Université d'Oran 1 - Ahmed Ben Bella<br>Faculté SNV, Département de Biotechnologie</p>
+                <i class="fas fa-university"></i>
+                <h3>Université</h3>
+                <p>Université d'Oran 1<br>Ahmed Ben Bella</p>
+                <p>Faculté SNV - Biotechnologie</p>
+                <p><i class="fas fa-map-marker-alt"></i> Oran, Algérie</p>
             </div>
             <div class="contact-card">
                 <i class="fas fa-laptop"></i>
                 <h3>Plateforme e-learning</h3>
-                <p><a href="https://elearn.univ-oran1.dz" target="_blank" rel="noopener noreferrer">elearn.univ-oran1.dz</a></p>
+                <a href="https://elearn.univ-oran1.dz" target="_blank" rel="noopener noreferrer">elearn.univ-oran1.dz</a>
+                <p>Messagerie intégrée</p>
+                <a href="https://elearn.univ-oran1.dz" class="btn" target="_blank">Accéder à la plateforme</a>
             </div>
-        </div>
-
-        <div class="form-container">
-            <h3>✉️ Envoyez-nous un message</h3>
-            <form action="mailto:allouche.abdelkader@univ-oran1.dz" method="post" enctype="text/plain">
-                <div class="form-group">
-                    <label for="name">Nom complet</label>
-                    <input type="text" id="name" name="name" required placeholder="Votre nom">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="votre@email.com">
-                </div>
-                <div class="form-group">
-                    <label for="subject">Sujet</label>
-                    <input type="text" id="subject" name="subject" required placeholder="Question / remarque">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required placeholder="Votre message..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Envoyer <i class="fas fa-paper-plane"></i></button>
-            </form>
-            <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--text-light);">Le formulaire ouvre votre client mail par défaut. Vous pouvez aussi écrire directement à l'adresse ci-dessus.</p>
+            <div class="contact-card">
+                <i class="fas fa-comments"></i>
+                <h3>Autres moyens</h3>
+                <p>Via la messagerie e-learning</p>
+                <p>Ou lors des séances de TD/TP</p>
+                <a href="mailto:allouche.abdelkader@univ-oran1.dz" class="btn">Envoyer un email</a>
+            </div>
         </div>
     </div>
 </main>
@@ -461,15 +398,14 @@
 <footer>
     <p>© 2025 Université d'Oran 1 - Département de Biotechnologie | Aspect Génétique du Développement (L3 Génétique)</p>
     <p style="margin-top: 12px;">
-        <a href="index.html">Accueil</a> | 
-        <a href="contact.html">Contact</a> | 
-        <a href="https://elearn.univ-oran1.dz" target="_blank" rel="noopener noreferrer">Plateforme e-learning</a>
+        <a href="#">Mentions légales</a> | 
+        <a href="#">Accessibilité</a> | 
+        <a href="https://elearn.univ-oran1.dz" target="_blank" rel="noopener noreferrer">Plateforme officielle</a>
     </p>
-    <p style="margin-top: 12px; font-size: 0.8rem;">Dernière mise à jour : mars 2025 — Dr ALLOUCHE</p>
+    <p style="margin-top: 12px; font-size: 0.8rem;">Dernière mise à jour : ressources interactives disponibles — Dr ALLOUCHE</p>
 </footer>
 
 <script>
-    // Menu mobile
     const toggleBtn = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
     if (toggleBtn && navMenu) {
