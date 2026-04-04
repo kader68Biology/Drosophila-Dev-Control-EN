@@ -24,6 +24,7 @@
             --border-color: #e2e8f0;
             --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
             --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.12);
             --gradient-hero: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
         }
 
@@ -40,7 +41,7 @@
             padding: 0 24px;
         }
 
-        /* ========== HEADER (identique à index.html) ========== */
+        /* ========== HEADER ========== */
         .site-header {
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(2px);
@@ -216,20 +217,12 @@
             .logo-img {
                 height: 64px;
             }
-            .contact-details {
-                max-width: 200px;
-                padding: 6px 12px;
-            }
             .brand-title {
                 font-size: 1.1rem;
             }
         }
 
-        /* Contenu principal */
-        main {
-            min-height: calc(100vh - 200px);
-        }
-
+        /* Section Contact (page dédiée) */
         .contact-page {
             background: var(--white);
             border-radius: 28px;
@@ -237,15 +230,16 @@
             padding: 2.5rem 2rem;
             margin: 2rem 0;
         }
-
-        .page-title {
+        .section-title {
             font-size: 2rem;
             font-weight: 700;
             color: var(--primary-color);
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.3px;
+            position: relative;
         }
-        .page-title:after {
+        .section-title:after {
             content: '';
             display: block;
             width: 70px;
@@ -254,25 +248,23 @@
             margin: 0.8rem auto 0;
             border-radius: 4px;
         }
-
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
-
         .contact-card {
             background: var(--light-bg);
             border-radius: 24px;
             padding: 2rem;
             text-align: center;
-            transition: transform 0.2s;
+            transition: all 0.25s;
             border: 1px solid var(--border-color);
         }
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-hover);
         }
         .contact-card i {
             font-size: 2.5rem;
@@ -281,7 +273,7 @@
         }
         .contact-card h3 {
             font-size: 1.4rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             color: var(--primary-color);
         }
         .contact-card p, .contact-card a {
@@ -292,49 +284,21 @@
             color: var(--secondary-color);
             text-decoration: underline;
         }
-
-        .form-container {
-            background: var(--light-bg);
-            border-radius: 24px;
-            padding: 2rem;
-            margin-top: 2rem;
-            border: 1px solid var(--border-color);
-        }
-        .form-container h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        .btn-submit {
+        .btn {
+            display: inline-block;
             background: var(--primary-color);
             color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
+            padding: 10px 24px;
             border-radius: 40px;
+            text-decoration: none;
             font-weight: 600;
-            cursor: pointer;
             transition: 0.2s;
+            margin-top: 1rem;
         }
-        .btn-submit:hover {
+        .btn:hover {
             background: var(--secondary-color);
+            transform: translateY(-2px);
         }
-
         footer {
             background: var(--primary-color);
             color: white;
@@ -350,15 +314,6 @@
         }
         footer a:hover {
             color: white;
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 0 16px;
-            }
-            .contact-page {
-                padding: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -384,14 +339,14 @@
         </div>
 
         <div class="header-profile">
-            <img src="images/photo_allouche.jpg" alt="Dr Abdelkader ALLOUCHE" class="profile-photo" onerror="this.src='https://placehold.co/88x88?text=👨‍🏫';">
+            <img src="images/photo_allouche.jpg" alt="Dr Abdelkader ALLOUCHE" class="profile-photo" onerror="this.src='https://placehold.co/88x88?text=👨🏫';">
             <div class="teacher-contact-info">
                 <span class="teacher-badge">Dr A. Allouche</span>
                 <div class="contact-details">
                     <p>🏛️ Université d'Oran 1 – Ahmed Ben Bella</p>
                     <p>🔬 Faculté des Sciences de la nature et de la vie</p>
                     <p>🧬 Département de Biotechnologie</p>
-                    <p>👨‍🏫 Maître de Conférence en Biologie</p>
+                    <p>👨🏫 Maître de Conférence en Biologie</p>
                     <p>📧 allouche.abdelkader@univ-oran1.dz</p>
                     <p>📞 +213 794 289 260</p>
                 </div>
