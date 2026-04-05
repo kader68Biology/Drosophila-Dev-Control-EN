@@ -1,41 +1,53 @@
-# Drosophila-Dev
-Site e-learning sur le développement embryonnaire de Drosophila melanogaster
+# Drosophila-Dev-Control-EN
+
+**Developmental Drosophila Genetic Control**
+
+An e-learning site on the embryonic development of *Drosophila melanogaster*.
 
 ## Description
-Ce site présente le module "Aspects Génétiques du Développement Embryonnaire" pour les étudiants de L3 Biotechnologie à l'Université d'Oran 1.
-Il est structuré pour ressembler à une plateforme LMS (type Moodle) afin de faciliter l'accès aux ressources.
 
-## Structure du Site
-- **index.html** : Page d'accueil et tableau de bord du cours.
-- **courses.html** : Contenu pédagogique (Chapitres, PDF, Vidéos, Interactifs).
-- **instructor.html** : Profile de l'enseignant (Dr Abdelkader ALLOUCHE).
-- **contact.html** : Coordonnées et formulaire de contact.
+This site presents the module "Genetic Aspects of Embryonic Development" for L3 Biotechnology students at the University of Oran 1.
+It is structured to resemble an LMS platform (Moodle-like) to facilitate access to resources.
 
-## Fichiers et Ressources
+## Site Structure
+
+- **index.html**: Homepage and course dashboard.
+- **courses.html**: Educational content (Chapters, PDFs, Videos, Interactive activities).
+- **instructor.html**: Instructor profile (Dr. Abdelkader ALLOUCHE).
+- **contact.html**: Contact information and form.
+
+## Files and Resources
+
 ### Documents (PDF)
+
 - `documents/Cours1_Synthese_Drosophila_20260302.pdf`
 - `documents/Cours1_Synthese_Session2_20260302.pdf`
 
-### Activités Interactives (HTML)
+### Interactive Activities (HTML)
+
 - `activities/annonce_bienvenue.html`
 - `activities/TD4_interactive.html`
 - `activities/Diagrammes_AP_Interactif.html`
 - `activities/TD2_axesAPDV_interactif.html`
 - `activities/OvoRegFinal_interactif.html`
 
-### Vidéos (MP4)
+### Videos (MP4)
+
 - `videos/annonce_etudiants.mp4`
 
-## Instructions d'Utilisation
-1. **Navigation :** Utilisez la barre de menu pour accéder aux cours et contacts.
-2. **Interactivité :** Les fichiers HTML interactifs sont intégrés directement dans la page `courses.html` via des iframes.
-3. **Vidéo :** La vidéo d'introduction est disponible sur la page d'accueil.
-4. **Téléchargement :** Les PDF s'ouvrent dans un nouvel onglet pour consultation ou téléchargement.
+## Usage Instructions
 
-## Accès
-- 🌐 Site web : [https://kader68biology.github.io/Drosophila-Dev/](https://kader68biology.github.io/Drosophila-Dev/)
+1. **Navigation:** Use the menu bar to access courses and contacts.
+2. **Interactivity:** Interactive HTML files are embedded directly in the `courses.html` page via iframes.
+3. **Video:** The introductory video is available on the homepage.
+4. **Download:** PDFs open in a new tab for viewing or downloading.
+
+## Access
+
+- 🌐 Website: https://kader68biology.github.io/Drosophila-Dev-Control-EN/
 
 ## Contact
-- **Enseignant :** Dr Abdelkader ALLOUCHE
-- **Université :** Université d'Oran 1 - Ahmed Ben Bella
-- **Email :** allouche.abdelkader@uiv-oran1.dz
+
+- **Instructor:** Dr. Abdelkader ALLOUCHE
+- **University:** University of Oran 1 - Ahmed Ben Bella
+- **Email:** allouche.abdelkader@univ-oran1.dz
