@@ -27,7 +27,50 @@
             --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.12);
             --gradient-hero: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
         }
+        
+/* ========== SMILEY ANIMÉ ========== */
+.hero-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
 
+.smiley-animated {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.title-content {
+    text-align: center;
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Animation du smiley */
+.smiley-animated circle:first-child {
+    animation: smileyPulse 2s ease-in-out infinite;
+}
+
+@keyframes smileyPulse {
+    0%, 100% { fill: #FFD700; }
+    50% { fill: #FFA500; }
+}
+
+/* Responsive smiley */
+@media (max-width: 768px) {
+    .smiley-animated {
+        width: 50px;
+        height: 50px;
+    }
+    .hero-title-container {
+        gap: 15px;
+    }
+}
+/* ========== FIN SMILEY ========== */
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: linear-gradient(145deg, #f1f5f9 0%, #eef2ff 100%);
@@ -435,9 +478,45 @@
 
 <main class="container">
     <!--Hero-->
-    <section id="accueil" class="hero">
-        <h1>🧬 Genetic Aspects of Embryonic Development</h1>
-        <p style="font-size: 1.2rem; color: var(--text-light);">Maîtrisez les mécanismes moléculaires chez <strong>Drosophila melanogaster</strong></p>
+    <section class="hero" id="home">
+    <div class="hero-title-container">
+        <!-- Smiley animé gauche -->
+        <svg class="smiley-animated" viewBox="0 0 100 100" aria-label="animated smiley face">
+            <circle cx="50" cy="50" r="45" fill="#FFD700" stroke="#000" stroke-width="2">
+                <animate attributeName="fill" values="#FFD700;#FFA500;#FFD700" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="35" cy="40" r="5" fill="#000">
+                <animate attributeName="ry" values="5;2;5" dur="1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="65" cy="40" r="5" fill="#000">
+                <animate attributeName="ry" values="5;2;5" dur="1s" repeatCount="indefinite"/>
+            </circle>
+            <path d="M 30 65 Q 50 85 70 65" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round">
+                <animate attributeName="d" values="M 30 65 Q 50 85 70 65;M 30 65 Q 50 75 70 65;M 30 65 Q 50 85 70 65" dur="2s" repeatCount="indefinite"/>
+            </path>
+        </svg>
+        
+        <div class="title-content">
+            <h1>Genetic Aspects of Embryonic Development</h1>
+            <p>Master the mechanisms of development in <em>Drosophila melanogaster</em></p>
+        </div>
+        
+        <!-- Smiley animé droite -->
+        <svg class="smiley-animated" viewBox="0 0 100 100" aria-label="animated smiley face">
+            <circle cx="50" cy="50" r="45" fill="#FFD700" stroke="#000" stroke-width="2">
+                <animate attributeName="fill" values="#FFD700;#FFA500;#FFD700" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="35" cy="40" r="5" fill="#000">
+                <animate attributeName="ry" values="5;2;5" dur="1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="65" cy="40" r="5" fill="#000">
+                <animate attributeName="ry" values="5;2;5" dur="1s" repeatCount="indefinite"/>
+            </circle>
+            <path d="M 30 65 Q 50 85 70 65" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round">
+                <animate attributeName="d" values="M 30 65 Q 50 85 70 65;M 30 65 Q 50 75 70 65;M 30 65 Q 50 85 70 65" dur="2s" repeatCount="indefinite"/>
+            </path>
+        </svg>
+    </div>
         <div class="hero-info">
             <p><strong>🏛️ University of Oran 1 - Ahmed Ben Bella</strong><br>Faculty of Natural and Life Sciences | Department of Biotechnology</p>
             <p><strong>Level:</strong> 3ème année Licence Génétique | <strong>Year:</strong> 2024-2025</p>
