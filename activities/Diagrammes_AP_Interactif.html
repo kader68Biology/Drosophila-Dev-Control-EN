@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>TD3 — AP Diagrams interactifs — Drosophile</title>
+<title>TD3 — AP Diagrams interactifs — Drosophila</title>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -68,49 +68,42 @@
 </head>
 <body>
 
-<h1>&#x1F9EC; TD3 — Interactive Diagrams : Axe Antéro-Postérieur</h1>
+<h1>&#x1F9EC; TD3 — Interactive Diagrams: anteroposterior axis</h1>
 <p style="text-align:center;color:#555;margin-bottom:25px;">
-  <i>Drosophila melanogaster</i> — Type sauvage &amp; mutants<br>
-  &#x1F5B1;&#xFE0F; Cliquez les boutons · Survolez les courbes · Explorez !</p>
+  <i>Drosophila melanogaster</i> — Type sauvage &amp; mutants<br>&#x1F5B1;&#xFE0F; Cliquez les boutons · Survolez les courbes · Explorez!</p>
 
-<!-- ═══════ CARTE 1 : GRADIENTS MATERNELS ═══════ -->
+<!--═══════ CARTE 1: gradients MATERNELS ═══════-->
 <div class="card">
-  <h2>&#x1F4CA; 1. Gradients morphogénétiques maternels</h2>
+  <h2>&#x1F4CA; 1. gradients morphogénétiques maternels</h2>
   <div class="info">
-    <b>&#x1F52C; Instructions :</b> Cliquez sur un bouton ci-dessous
+    <b>&#x1F52C; Instructions:</b> Cliquez sur un bouton ci-dessous
     pour afficher la condition correspondante. Survolez les courbes
     pour lire les concentrations exactes.
   </div>
   <div class="btn-group" id="grad_btns">
     <button class="btn btn-wt active" id="btn_wt"
-            onclick="showGrad('wt', this)">
-      &#x1F7E2; Type sauvage</button>
+            onclick="showGrad('wt', this)">&#x1F7E2; Type sauvage</button>
     <button class="btn btn-mut"
-            onclick="showGrad('bcd_mut', this)">
-      &#x1F534; bicoid⁻</button>
+            onclick="showGrad('bcd_mut', this)">&#x1F534; bicoid⁻</button>
     <button class="btn btn-mut"
-            onclick="showGrad('nan_mut', this)">
-      &#x1F534; nanos⁻</button>
+            onclick="showGrad('nan_mut', this)">&#x1F534; nanos⁻</button>
     <button class="btn btn-mut"
-            onclick="showGrad('osk_mut', this)">
-      &#x1F7E0; oskar⁻</button>
+            onclick="showGrad('osk_mut', this)">&#x1F7E0; oskar⁻</button>
     <button class="btn btn-mut"
-            onclick="showGrad('dbl_mut', this)">
-      &#x26AB; bcd⁻ nan⁻</button>
+            onclick="showGrad('dbl_mut', this)">&#x26AB; Bcd⁻ nan⁻</button>
     <button class="btn btn-exp"
-            onclick="showGrad('inj_bcd', this)">
-      &#x1F535; Injection Bcd&#x2192;P</button>
+            onclick="showGrad('inj_bcd', this)">&#x1F535; Injection Bcd&#x2192;P</button>
   </div>
   <div id="pheno_box" class="pheno" style="display:none;"></div>
   <div id="error_grad" class="error-box"></div>
   <div id="plot_grad" class="plot-container"></div>
 </div>
 
-<!-- ═══════ CARTE 2 : GÈNES GAP ═══════ -->
+<!--═══════ CARTE 2: gap genes ═══════-->
 <div class="card">
-  <h2>&#x1F4CA; 2. Domaines d'expression des gènes gap</h2>
+  <h2>&#x1F4CA; 2. Domaines d'expression des gap genes</h2>
   <div class="info">
-    <b>&#x1F52C; Instructions :</b> Cliquez sur un nom de gène dans
+    <b>&#x1F52C; Instructions:</b> Cliquez sur un nom de gène dans
     la <b>légende</b> (à droite du graphe) pour le masquer/afficher.
     Survolez les courbes pour les valeurs d'expression.
   </div>
@@ -118,9 +111,9 @@
   <div id="plot_gaps" class="plot-container"></div>
 </div>
 
-<!-- ═══════ CARTE 3 : PAIR-RULE + ENGRAILED ═══════ -->
+<!--═══════ CARTE 3: PAIR-RULE + engrailed ═══════-->
 <div class="card">
-  <h2>&#x1F4CA; 3. Gènes pair-rule et polarité segmentaire</h2>
+  <h2>&#x1F4CA; 3. pair-rule genes et polarity segmentaire</h2>
   <div class="info">
     7 bandes <i>eve</i> + 7 bandes <i>ftz</i> en alternance &#x2192;
     14 bandes <i>engrailed</i>. Cliquez les boutons pour isoler
@@ -128,36 +121,31 @@
   </div>
   <div class="btn-group" id="pr_btns">
     <button class="btn btn-wt active" id="btn_pr_all"
-            onclick="showPR('all', this)">
-      Tous</button>
+            onclick="showPR('all', this)">Tous</button>
     <button class="btn btn-exp"
-            onclick="showPR('eve', this)">
-      eve seul</button>
+            onclick="showPR('eve', this)">eve seul</button>
     <button class="btn btn-mut"
-            onclick="showPR('ftz', this)">
-      ftz seul</button>
+            onclick="showPR('ftz', this)">ftz seul</button>
     <button class="btn btn-gap"
-            onclick="showPR('en', this)">
-      engrailed</button>
+            onclick="showPR('en', this)">engrailed</button>
   </div>
   <div id="error_pr" class="error-box"></div>
   <div id="plot_pr" class="plot-container"></div>
 </div>
 
-<!-- ═══════ CARTE 4 : TABLEAU ═══════ -->
+<!--═══════ CARTE 4: TABLEAU ═══════-->
 <div class="card">
   <h2>&#x1F4CB; 4. Tableau récapitulatif des mutations AP</h2>
   <table>
     <tr>
-      <th>Mutation</th><th>Bicoid</th><th>Nanos</th>
-      <th>Hunchback</th><th>Caudal</th><th>Phénotype</th>
+      <th>mutation</th><th>bicoid</th><th>nanos</th>
+      <th>hunchback</th><th>Caudal</th><th>phenotype</th>
     </tr>
     <tr>
       <td><b>Type sauvage</b></td>
-      <td>Gradient A&#x2192;P</td><td>Gradient P&#x2192;A</td>
+      <td>gradient A&#x2192;P</td><td>gradient P&#x2192;A</td>
       <td>Antérieur (mat+zyg)</td><td>Postérieur</td>
-      <td class="dorsal"><b>Normal</b></td>
-    </tr>
+      <td class="dorsal"><b>Normal</b></td></tr>
     <tr>
       <td><b>bicoid⁻</b></td>
       <td class="ventral">Absent</td><td>Normal</td>
@@ -174,10 +162,9 @@
       <td><b>oskar⁻</b></td>
       <td>Normal</td><td class="ventral">&#x2248; 0</td>
       <td>Non réprimé</td><td>Normal</td>
-      <td class="ventral"><b>Pas d'abd. + stérile</b></td>
-    </tr>
+      <td class="ventral"><b>Pas d'abd. + stérile</b></td></tr>
     <tr>
-      <td><b>bcd⁻ nan⁻</b></td>
+      <td><b>Bcd⁻ nan⁻</b></td>
       <td class="ventral">Absent</td>
       <td class="ventral">Absent</td>
       <td>Mat. uniforme</td><td>Uniforme fort</td>
@@ -187,43 +174,37 @@
       <td><b>Inj. Bcd&#x2192;P</b></td>
       <td class="dorsal">2 sources (A+P)</td><td>Normal</td>
       <td>2 pics</td><td>Très réduit</td>
-      <td class="dorsal"><b>Bicéphale</b></td>
-    </tr>
-  </table>
-</div>
+      <td class="dorsal"><b>Bicéphale</b></td></tr>
+  </table></div>
 
-<!-- ═══════ CARTE 5 : LÉGENDES ═══════ -->
+<!--═══════ CARTE 5: LÉGENDES ═══════-->
 <div class="card">
-  <h2>&#x1F4DA; 5. Légendes biologiques</h2>
+  <h2>&#x1F4DA; 5. Légendes biological</h2>
   <div class="legend-bio">
-    <h3>&#x1F9EA; Morphogènes maternels</h3>
-    <p><b>Bicoid</b> (bleu) : FT homéodomaine K50, morphogène antérieur.
+    <h3>&#x1F9EA; morphogens maternels</h3>
+    <p><b>bicoid</b> (bleu) : FT homéodomaine K50, morphogène antérieur.
     Active <i>hunchback</i>, <i>otd</i>, <i>ems</i>.
     Réprime <i>caudal</i> (traductionnel via 3'UTR).</p>
-    <p><b>Nanos</b> (rouge) : répresseur traductionnel. Avec Pumilio +
+    <p><b>nanos</b> (rouge) : répresseur traductionnel. Avec Pumilio +
     Brat, dégrade l'ARNm <i>hunchback</i> maternel au pôle P
     via le NRE (3'UTR). Traduit seulement au P (ancré par Oskar).</p>
     <p><b>Caudal</b> (orange) : FT homéodomaine postérieur. Réprimé
     traductionnellement par Bicoid en antérieur.</p>
-    <p><b>Oskar</b> (violet) : ancre Nanos + plasma germinatif au
-    pôle P. Perte &#x2192; double défaut somatique + germinal.</p>
-  </div>
+    <p><b>oskar</b> (violet) : ancre Nanos + plasma germinatif au
+    pôle P. Perte &#x2192; double défaut somatique + germinal.</p></div>
   <div class="legend-bio" style="border-color:#BF360C;">
-    <h3>&#x1F52C; Gènes de segmentation</h3>
+    <h3>&#x1F52C; segmentation genes</h3>
     <p><b>Gap</b> : larges domaines. Répressions croisées &#x2192; frontières
     nettes. Mutations &#x2192; délétion de segments contigus.</p>
     <p><b>Pair-rule</b> : 7 bandes chacun. Enhancers modulaires.
     Mutations &#x2192; perte alternée (1 parasegment sur 2).</p>
-    <p><b>Polarité segmentaire</b> : 14 bandes. Boucle en/hh/wg
-    stabilise les limites parasegmentaires.</p>
-  </div>
+    <p><b>polarity segmentaire</b> : 14 bandes. Boucle en/hh/wg
+    stabilise les limites parasegmentaires.</p></div>
 </div>
 
 <footer>
   &#x1F9EC; Biologie du Développement — TD3 Axe AP —
-  <i>Drosophila melanogaster</i><br>
-  Généré automatiquement &#x2022; python-docx + matplotlib + Plotly
-</footer>
+  <i>Drosophila melanogaster</i><br>Généré automatiquement &#x2022; python-docx + matplotlib + Plotly</footer>
 
 <script>
 // ════════════════════════════════════════════════
@@ -258,7 +239,7 @@ var PHENOS = {
   osk_mut: '<b>oskar\u207B</b> \u2192 <b>Pas d\'abdomen + stérilité</b>. '
     + 'Nanos non ancré au P \u2192 comme nanos\u207B pour le soma. Pas de '
     + 'plasma germinatif \u2192 pas de cellules polaires \u2192 stérile.',
-  dbl_mut: '<b>bcd\u207B nan\u207B</b> \u2192 <b>En haltère</b>. Ni gradient '
+  dbl_mut: '<b>Bcd\u207B nan\u207B</b> \u2192 <b>En haltère</b>. Ni gradient '
     + 'antérieur ni postérieur. Seul le système terminal (Torso \u2192 '
     + 'tailless) subsiste \u2192 acron + telson reliés par cuticule '
     + 'indifférenciée.',
@@ -570,6 +551,5 @@ window.addEventListener('DOMContentLoaded', function() {
   console.log('[TD3] \u2705 Tous les diagrammes initialisés !');
   console.log('[TD3] ========================================');
 });
-</script>
-</body>
+</script></body>
 </html>

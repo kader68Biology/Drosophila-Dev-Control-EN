@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cours drosophila</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .header .meta {
+            margin-top: 20px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .page-marker {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 10px 20px;
+            margin: 30px 0 20px 0;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85em;
+        }
+        
+        .paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+            text-indent: 30px;
+        }
+        
+        .paragraph:first-of-type {
+            text-indent: 0;
+        }
+        
+        .paragraph:first-of-type::first-letter {
+            font-size: 3em;
+            float: left;
+            line-height: 1;
+            margin-right: 10px;
+            color: #667eea;
+            font-weight: 700;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .term {
+            color: #764ba2;
+            font-weight: 600;
+        }
+        
+        .download-section {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        
+        .footer a {
+            color: #a8edea;
+            text-decoration: none;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .download-section {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 cours drosophila</h1>
+            <div class="subtitle">English Translation / Traduction Anglaise</div>
+            <div class="meta">Original document: cours_drosophila.pdf | 6 pages</div>
+        </div>
+        
+        <div class="content">
+            <div class="page-marker">Page 1</div>
+            <p class="paragraph">life cycle de <span class="term">Drosophila</span> melanogaster et Régulation de l'<span class="term">oogenesis</span></p>
+            <p class="paragraph">Du <span class="term">development</span> ovarien à la <span class="term">segmentation</span> <span class="term">embryonic</span></p>
+            <p class="paragraph">1. Introduction Générale <span class="term">Drosophila</span> melanogaster est un insecte diptère qui constitue l'un des modèles les plus importants en genetics du <span class="term">development</span>. Ce document présente le life cycle complet de la <span class="term">Drosophila</span> et les mécanismes molecular régulant l'<span class="term">oogenesis</span> dans les voies génitales femelles.</p>
+            <p class="paragraph">Avantages du modèle <span class="term">Drosophila</span>: life cycle court ~10 jours à 25°C</p>
+            <p class="paragraph">Grande fécondité ~400-800 œufs par femelle Génome compact ~180 Mb, 4 paires de chromosomes Outils genetic Balanceurs, UAS-GAL4, CRISPR...</p>
+            <p class="paragraph">Figure 1: life cycle de <span class="term">Drosophila</span> melanogaster</p>
+            <div class="page-marker">Page 2</div>
+            <p class="paragraph">2. Structure de l'ovary et <span class="term">oogenesis</span> L'ovary de la <span class="term">Drosophila</span> est constitué d'environ 16 à 20 ovarioles, chacun étant une chaîne de egg chambers (follicles) à différents stages de maturation.</p>
+            <p class="paragraph">2.1 Le germarium Le germarium, situé à l'extrémité antérieure de chaque ovariole, contient les cells strains germinales (GSC). Une GSC se divise asymétriquement pour donner:</p>
+            <p class="paragraph">• Une cell strain (auto-renouvellement) • Un cystoblaste qui subit 4 divisions mitotiques incomplètes</p>
+            <p class="paragraph">3. Établissement de la <span class="term">polarity</span></p>
+            <div class="page-marker">Page 3</div>
+            <p class="paragraph">La <span class="term">polarity</span> de l'œuf est établie lors de l'<span class="term">oogenesis</span> Thanks to des interactions complexes entre l'oocyte et les follicle cells. Deux axes principaux sont définis:</p>
+            <p class="paragraph">3.1 anteroposterior <span class="term">axis</span> (A-P) Le noyau de l'oocyte migre vers la future extrémité antéro-dorsale. Le signal Gurken (ligand de type EGF) active le receptor Torpedo (EGFR) dans les follicle cells, repositionnant le cytosquelette de microtubules.</p>
+            <p class="paragraph">3.2 dorsoventral <span class="term">axis</span> (D-V) Le signal Gurken, émis depuis la position antéro-dorsale, active Torpedo dans les cells folliculaires dorsales, qui répriment la production du ligand activant la voie Toll. Ceci préfigure l'asymmetry dorso-ventrale.</p>
+            <p class="paragraph">4. gradients de morphogens Maternels Les <span class="term">mRNA</span> et <span class="term">proteins</span> déposés dans l'oocyte forment des gradients de morphogens qui fournissent l'information de position dans l'embryo syncytial.</p>
+            <p class="paragraph">4.1 <span class="term">bicoid</span> (<span class="term">anterior</span> system) L'<span class="term">mRNA</span> <span class="term">bicoid</span> est localisé au <span class="term">anterior</span> pole. Après fertilization, la <span class="term">protein</span> <span class="term">bicoid</span> forme un <span class="term">gradient</span> décroissant vers le postérieur, activant <span class="term">hunchback</span> et réprimant caudal.</p>
+            <p class="paragraph">4.2 <span class="term">nanos</span> (<span class="term">posterior</span> system)</p>
+            <div class="page-marker">Page 4</div>
+            <p class="paragraph">L'<span class="term">mRNA</span> <span class="term">nanos</span> est localisé au <span class="term">posterior</span> pole. La <span class="term">protein</span> <span class="term">nanos</span> forme un <span class="term">gradient</span> décroissant vers l'antérieur et réprime la translation de <span class="term">hunchback</span> postérieurement.</p>
+            <div class="page-marker">Page 5</div>
+            <p class="paragraph">5. <span class="term">segmentation</span> cascade L'établissement de la <span class="term">segmentation</span> repose sur une cascade hiérarchique de régulation génique impliquant successivement les gènes maternels, gap, pair-rule, de <span class="term">polarity</span> segmentaire, et <span class="term">homeotic</span>.</p>
+            <p class="paragraph">Tableau 1: Principaux gap <span class="term">genes</span> et leur régulation Gène Domaine activation Répression</p>
+            <p class="paragraph"><span class="term">hunchback</span> Antérieur <span class="term">bicoid</span> <span class="term">krüppel</span>, knirps</p>
+            <p class="paragraph"><span class="term">krüppel</span> Central <span class="term">bicoid</span>/Hb (niveau moyen) hb, knirps</p>
+            <p class="paragraph">knirps Postérieur Caudal <span class="term">krüppel</span>, giant</p>
+            <p class="paragraph">giant Ant. + Post. <span class="term">bicoid</span> / Caudal <span class="term">krüppel</span></p>
+            <p class="paragraph">6. Conclusion L'étude du life cycle et de l'<span class="term">oogenesis</span> de <span class="term">Drosophila</span> melanogaster a permis de découvrir des principes fondamentaux de la biology du <span class="term">development</span>, incluant l'établissement des axes par des gradients de morphogens, l'hérarchie de régulation génique, et la conservation évolutive des mécanismes (gènes Hox, voies Wnt, hedgehog, Toll).</p>
+            <div class="page-marker">Page 6</div>
+            <p class="paragraph">Références • Nüsslein-Volhard, C. & Wieschaus, E. (1980). Nature, 287, 795–801. • Gilbert, S.F. Developmental Biology (12e éd.). • Wolpert, L. et al. Principles of <span class="term">Development</span> (6e éd.). • St Johnston, D. (2005). Cell, 136(4), 719-730.</p>
+            <p class="paragraph">Document généré le 31/03/2026</p>
+        </div>
+        
+        <div class="download-section">
+            <a href="cours_drosophila.pdf" class="download-btn" download>⬇️ Download Original PDF</a>
+            <p style="margin-top: 15px; color: #666; font-size: 0.9em;">
+                This is an automated translation. For the authoritative version, please refer to the original French document.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>Generated by Course Translator | Dr. Abdelkader Allouche - University of Oran 1</p>
+            <p>© 2024-2025 - Educational Resources</p>
+        </div>
+    </div>
+</body>
+</html>
